@@ -2,27 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Eartha Fresh – Masala Soda & Modern Beverages</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eartha Fresh | Masala Soda – Peacock Covert Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Eartha Fresh – modern, Indian-inspired beverages crafted in British Columbia. Signature Masala Soda in a sleek 355ml matte can. Launching soon."
+    content="Eartha Fresh Masala Soda – Peacock Covert Edition. A modern take on traditional Indian masala soda, crafted locally in British Columbia."
   />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
-      /* Brand palette – black matte + peacock + gold */
-      --bg-dark: #020308;
-      --bg-card: #050814;
-      --accent: #19b9a5;
-      --accent-soft: rgba(25, 185, 165, 0.14);
-      --accent-gold: #dcbf7a;
-      --accent-blue: #1b9fe3;
-      --text-main: #f9fafb;
-      --text-muted: #a0aec0;
-      --border-subtle: #1f2933;
-      --radius-xl: 22px;
-      --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.7);
+      --bg: #050608;
+      --bg-alt: #0b0f16;
+      --accent-teal: #10a4b8;
+      --accent-blue: #166a9b;
+      --accent-gold: #d6a75b;
+      --accent-magenta: #b23a73;
+      --accent-purple: #6b4aa8;
+      --text-main: #f5f5f5;
+      --text-muted: #a8b0c4;
+      --card-bg: #10131c;
+      --soft-border: rgba(255, 255, 255, 0.06);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.7);
+      --radius-large: 26px;
+      --radius-pill: 999px;
       --max-width: 1120px;
+      --section-padding: 96px;
     }
 
     * {
@@ -31,20 +41,16 @@
       padding: 0;
     }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      /* Global dark gradient background */
-      background:
-        radial-gradient(circle at top, #0b1220 0, #020308 55%, #000 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
+    html {
+      scroll-behavior: smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #101427, #050608 60%);
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
     img {
@@ -52,349 +58,307 @@
       display: block;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     /* Header / Nav */
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 40;
       backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(2, 6, 23, 0.96),
-        rgba(2, 6, 23, 0.85),
-        transparent
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, #151b2d 0%, #050608 55%);
+      background-color: rgba(5, 6, 8, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     }
 
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 12px 18px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 24px;
     }
 
-    .brand-mark {
+    .nav-brand {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    /* New: header logo image */
-    .brand-image {
-      height: 46px;
-      width: auto;
-      display: block;
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 13px;
+    .nav-brand-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
     }
 
-    .nav-links a {
+    .nav-menu {
+      display: flex;
+      gap: 22px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
-      padding-bottom: 4px;
-      position: relative;
     }
 
-    .nav-links a::after {
+    .nav-menu a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-menu a::after {
       content: "";
       position: absolute;
-      inset-inline: 0;
+      left: 0;
       bottom: 0;
-      height: 1px;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.18s ease-out;
-      background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(
+        to right,
+        var(--accent-teal),
+        var(--accent-gold)
+      );
+      transition: width 0.22s ease-out;
     }
 
-    .nav-links a:hover {
-      color: var(--text-main);
+    .nav-menu a:hover::after {
+      width: 100%;
     }
 
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .nav-cta {
+    .nav-chip {
       padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at 0 0, var(--accent-soft), transparent);
-      font-size: 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      color: var(--accent-gold);
+      background: radial-gradient(circle at top left, #1a2434, #090b11);
     }
 
-    .nav-cta span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #4de6d0, #0a6154);
-      box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
-    }
-
-    .nav-cta:hover {
-      background: radial-gradient(circle at 0 0, rgba(25, 185, 165, 0.26), transparent);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
-    }
-
-    .nav-cta:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: none;
-      background: transparent;
-      color: var(--text-main);
-      font-size: 20px;
-      cursor: pointer;
-      padding: 6px;
-    }
+    /* Layout */
 
     main {
-      flex: 1;
+      padding-top: 78px; /* header height offset */
     }
 
-    .section {
+    section {
+      padding: var(--section-padding) 18px;
+    }
+
+    .section-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 52px 18px;
     }
 
-    /* Launch strip */
-
-    .launch-banner {
-      width: 100%;
-      background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
-      color: #020617;
-      font-size: 11px;
+    .section-kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
-      text-align: center;
-      padding: 7px 10px;
+      color: var(--accent-teal);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 2.1rem;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 26px;
     }
 
     /* Hero */
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 48px;
-      align-items: center;
-      padding-top: 56px;
-      padding-bottom: 60px;
-
-      /* New: enable pseudo-element background */
       position: relative;
-      z-index: 0;
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
-    /* New: transparent-style logo only behind hero */
-   .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    url('earthafresh-logo.png') center 18% / 360px auto no-repeat;
-  opacity: 0.10;          /* adjust to 0.07–0.12 if you want softer/stronger */
-  pointer-events: none;
-  z-index: -1;
-  mix-blend-mode: screen;
-}
-
-    .hero-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
+    .hero::before {
+      /* big faded logo in background of hero */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("images/earthafresh-logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1100px auto; /* tweak size */
+      opacity: 0.06; /* tweak fade */
+      filter: blur(0.2px);
+      pointer-events: none;
     }
 
-    .hero-tag {
-      display: inline-flex;
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(16, 164, 184, 0.33), transparent),
+        radial-gradient(circle at 100% 0%, rgba(178, 58, 115, 0.35), transparent),
+        radial-gradient(circle at 100% 100%, rgba(214, 167, 91, 0.25), transparent);
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 18px 72px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
       align-items: center;
-      gap: 7px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at 0 0, var(--accent-soft), transparent);
-      font-size: 11px;
+      z-index: 1;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-logo {
+      max-width: 420px;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.23em;
       color: var(--text-muted);
     }
 
-    .hero-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
+    .hero-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      max-width: 460px;
     }
 
-    .hero-tag.secondary {
-      border-style: dashed;
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--accent-gold);
-    }
-
-    h1.hero-title {
-      font-size: clamp(2.45rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
-    }
-
-    h1.hero-title span.accent {
-      background: linear-gradient(120deg, var(--accent), var(--accent-gold));
+    .hero-heading span {
+      background-image: linear-gradient(
+        120deg,
+        var(--accent-teal),
+        var(--accent-gold),
+        var(--accent-magenta)
+      );
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
     }
 
-    .hero-subtitle {
-      font-size: 15px;
+    .hero-text {
+      font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 32rem;
-      line-height: 1.7;
-      margin-bottom: 22px;
+      max-width: 480px;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-top: 4px;
     }
 
-    .hero-badge {
-      font-size: 11px;
+    .badge {
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: radial-gradient(circle at top left, #181f2c, #050608);
     }
 
-    .hero-actions {
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent-gold), var(--accent-magenta));
+    }
+
+    .hero-cta {
+      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
-      margin-bottom: 16px;
     }
 
     .btn-primary {
-      padding: 10px 18px;
-      border-radius: 999px;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
       border: none;
-      cursor: pointer;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #020617;
-      background: radial-gradient(circle at 0 0, #5be7d2, #19b9a5 45%, #0f766e);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.15s ease, box-shadow 0.18s ease, filter 0.18s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.9);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    .btn-ghost {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn-ghost:hover {
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.85);
-      border-color: rgba(148, 163, 184, 0.9);
-    }
-
-    .hero-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      max-width: 27rem;
-      line-height: 1.6;
-    }
-
-    .hero-note strong {
-      color: #e2e8f0;
+      font-size: 0.9rem;
       font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        135deg,
+        var(--accent-teal),
+        var(--accent-blue),
+        var(--accent-gold)
+      );
+      color: #050608;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      cursor: pointer;
     }
 
-    /* Hero Visual */
+    .btn-secondary {
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
 
-    .hero-visual {
-      position: relative;
-      min-height: 260px;
+    .hero-right {
       display: flex;
-      align-items: center;
       justify-content: center;
     }
 
     .can-card {
-      width: 260px;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top, #1d2237, #050608 75%);
+      border-radius: var(--radius-large);
+      padding: 26px 22px 26px;
       box-shadow: var(--shadow-soft);
-      padding: 16px 18px 18px;
+      border: 1px solid var(--soft-border);
+      max-width: 340px;
+      width: 100%;
       position: relative;
       overflow: hidden;
     }
@@ -402,613 +366,754 @@
     .can-card::before {
       content: "";
       position: absolute;
-      inset: -30%;
+      inset: -40%;
       background: radial-gradient(
-        circle at top,
-        rgba(45, 212, 191, 0.12),
-        transparent 55%
+        circle at 0% 0%,
+        rgba(16, 164, 184, 0.18),
+        transparent 60%
       );
-      pointer-events: none;
       opacity: 0.9;
+      pointer-events: none;
     }
 
-    .can-label {
-      position: relative;
-      border-radius: calc(var(--radius-xl) - 4px);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background:
-        radial-gradient(circle at 18% 0, rgba(56, 189, 248, 0.32), transparent 48%),
-        radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.22), transparent 55%),
-        #020617;
-      padding: 16px 14px 18px;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .label-pill {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-gold);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(214, 191, 122, 0.65);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(15, 23, 42, 0.78);
-      margin-bottom: 14px;
-    }
-
-    .label-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-    }
-
-    .label-title {
-      font-size: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      margin-bottom: 8px;
-    }
-
-    .label-subtitle {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      color: var(--text-muted);
-      margin-bottom: 26px;
-    }
-
-    .peacock-motif {
-      width: 100%;
-      height: 90px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background-image:
-        radial-gradient(circle at 10% 0, #19b9a5 0, transparent 45%),
-        radial-gradient(circle at 35% 80%, #1b9fe3 0, transparent 46%),
-        radial-gradient(circle at 70% 18%, #22c55e 0, transparent 52%),
-        radial-gradient(circle at 95% 60%, #fbbf24 0, transparent 45%);
-      opacity: 0.92;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 18px;
-    }
-
-    .peacock-motif::after {
-      content: "";
+    .can-tag {
       position: absolute;
-      inset-inline: 0;
-      inset-block: 42%;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(148, 163, 184, 0.9),
-        transparent
-      );
-      opacity: 0.8;
-    }
-
-    .label-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .label-footer strong {
-      font-size: 13px;
-      color: var(--text-main);
-      text-transform: uppercase;
+      top: 18px;
+      left: 18px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 8, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.7rem;
       letter-spacing: 0.16em;
-    }
-
-    .label-made {
-      text-align: right;
-      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      color: var(--accent-gold);
+      z-index: 1;
     }
 
-    .label-made span {
-      display: block;
+    .can-image-wrap {
+      position: relative;
+      padding: 34px 22px 12px;
+      z-index: 1;
     }
 
     .can-meta {
       position: relative;
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
+      z-index: 1;
+      padding: 10px 2px 0;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .can-meta span {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    .can-meta strong {
+      color: var(--text-main);
+      font-weight: 500;
     }
 
-    .glow-orbit {
-      position: absolute;
-      inset: 12px -26px auto;
-      height: 12px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 50% 50%, rgba(25, 185, 165, 0.9), transparent 60%);
-      opacity: 0.5;
-      filter: blur(10px);
-    }
-
-    .hero-chip {
-      position: absolute;
-      top: 10%;
-      right: -6px;
-      translate: -10px 10px;
-      padding: 9px 13px;
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 11px;
-      max-width: 190px;
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.75);
-    }
-
-    .hero-chip span {
-      display: block;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
+    .can-meta p {
       margin-bottom: 4px;
     }
 
-    /* Section headers */
+    /* Products */
 
-    .section-header {
-      margin-bottom: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .section-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--accent);
-    }
-
-    .section-title {
-      font-size: 22px;
-      letter-spacing: 0.02em;
-    }
-
-    .section-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 32rem;
-      line-height: 1.6;
-    }
-
-    /* Shared 2-column layouts */
-
-    .two-col {
+    .products-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 30px;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
     }
 
-    .card {
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 20px;
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
+    .product-card {
+      background: radial-gradient(circle at top, #171b29, #050608 70%);
+      border-radius: var(--radius-large);
+      padding: 26px 26px 24px;
+      border: 1px solid var(--soft-border);
       box-shadow: var(--shadow-soft);
     }
 
-    .card h3 {
-      font-size: 16px;
+    .product-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .product-edition {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
       margin-bottom: 10px;
     }
 
-    .card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 15px;
+    .product-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
     }
 
-    .list {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .list li {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .bullet {
-      margin-top: 5px;
+    .product-pill span {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(45, 212, 191, 0.8);
-      flex-shrink: 0;
+      background: radial-gradient(circle, #ffcc4a, #b23a73);
     }
 
-    .pill-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pill {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+    .product-copy {
+      font-size: 0.95rem;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.88);
+      margin-bottom: 12px;
     }
 
     .product-specs {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      font-size: 11px;
-      margin-top: 10px;
-    }
-
-    .spec {
-      padding: 8px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-    }
-
-    .spec-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-
-    .spec-value {
-      font-size: 13px;
-    }
-
-    .product-top {
       display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .spec-chip {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-muted);
+    }
+
+    .product-can-mini {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    /* Story / About */
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .story-block {
+      background: linear-gradient(
+        135deg,
+        rgba(22, 106, 155, 0.12),
+        rgba(16, 164, 184, 0.06),
+        rgba(5, 6, 8, 0.9)
+      );
+      border-radius: var(--radius-large);
+      border: 1px solid var(--soft-border);
+      padding: 22px 24px 20px;
+    }
+
+    .story-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .story-block p {
+      font-size: 0.95rem;
       color: var(--text-muted);
       margin-bottom: 10px;
     }
 
-    .product-subnote {
-      font-size: 11px;
+    .story-block ul {
+      margin-left: 18px;
+      padding-left: 0;
       color: var(--text-muted);
-      margin-top: 10px;
+      font-size: 0.93rem;
     }
 
-    .product-cta-row {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
+    .story-block ul li {
+      margin-bottom: 6px;
     }
 
-    .stamp {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.65);
-      color: var(--accent);
+    /* Retail & Wholesale */
+
+    .retail-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 26px;
     }
 
-    .product-photo-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      padding: 12px;
-      background: radial-gradient(circle at 0 0, #020617, #020617 60%);
+    .retail-card {
+      background: radial-gradient(circle at top, #1f2335, #050608 70%);
+      border-radius: var(--radius-large);
+      padding: 22px 24px;
+      border: 1px solid var(--soft-border);
       box-shadow: var(--shadow-soft);
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
-    .photo-placeholder {
-      border-radius: 18px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      aspect-ratio: 4/5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      background:
-        radial-gradient(circle at 10% 0, rgba(25, 185, 165, 0.12), transparent 50%),
-        radial-gradient(circle at 85% 100%, rgba(220, 191, 122, 0.16), transparent 55%);
-      text-align: center;
-      padding: 14px;
+    .retail-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
     }
 
-    .photo-caption {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 8px;
-      text-align: center;
+    .retail-card ul {
+      margin-left: 18px;
+      margin-top: 6px;
+    }
+
+    .retail-highlight {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--accent-gold);
     }
 
     /* Contact */
 
-    .contact-grid {
+    .contact-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 30px;
+      align-items: start;
+    }
+
+    .contact-details {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact-details p {
+      margin-bottom: 8px;
+    }
+
+    .contact-highlight {
+      font-size: 0.9rem;
+      color: var(--accent-teal);
+      margin-top: 10px;
     }
 
     .contact-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      padding: 18px 18px 20px;
-      background: radial-gradient(circle at 0 0, #020617, #020617 60%);
+      background: radial-gradient(circle at top, #171b2a, #050608 70%);
+      border-radius: var(--radius-large);
+      border: 1px solid var(--soft-border);
+      padding: 22px 24px 24px;
       box-shadow: var(--shadow-soft);
     }
 
+    .contact-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
     .contact-card form {
-      display: grid;
-      gap: 12px;
-    }
-
-    .field-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 4px;
-      color: var(--text-muted);
-    }
-
-    .field {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 9px 14px;
-      font-size: 13px;
-      color: var(--text-main);
-      width: 100%;
-      outline: none;
-    }
-
-    .field::placeholder {
-      color: #64748b;
-    }
-
-    textarea.field {
-      border-radius: 16px;
-      min-height: 90px;
-      resize: vertical;
-      padding-top: 10px;
-    }
-
-    .contact-meta {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .contact-list {
-      margin-top: 12px;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .contact-list span.label {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 11px;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .social-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
-      margin-top: 10px;
-      font-size: 13px;
+      margin-top: 4px;
     }
 
-    .social-pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 6px 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      background: rgba(15, 23, 42, 0.85);
+    .input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       color: var(--text-muted);
+      margin-bottom: 4px;
+      display: block;
     }
 
-    .social-pill span.icon {
-      font-size: 13px;
+    input,
+    textarea {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 6, 8, 0.8);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #5f667a;
+    }
+
+    .contact-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 8px;
     }
 
     /* Footer */
 
     footer {
-      border-top: 1px solid rgba(30, 41, 59, 0.9);
-      padding: 18px;
-      margin-top: 40px;
-      font-size: 11px;
-      color: var(--text-muted);
-      background: radial-gradient(circle at top, #020617, #000 70%);
+      padding: 28px 18px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: #050608;
     }
 
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
+      font-size: 0.8rem;
+      color: var(--text-muted);
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .footer-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .footer-inner span {
+      opacity: 0.9;
     }
 
-    .footer-tag {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
+    /* Responsive */
 
-    @media (max-width: 860px) {
-      .hero,
-      .two-col,
-      .contact-grid {
+    @media (max-width: 960px) {
+      .hero-inner,
+      .products-grid,
+      .story-layout,
+      .retail-grid,
+      .contact-layout {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .hero {
-        padding-top: 40px;
+      .hero-inner {
+        padding-top: 12px;
       }
 
-      .hero-visual {
+      .hero-right {
         order: -1;
       }
 
-      .nav-links {
-        display: none;
+      .hero-logo {
+        max-width: 340px;
       }
 
-      .nav-links.open {
-        display: flex;
-        position: absolute;
-        inset-inline: 0;
-        top: 52px;
-        padding: 10px 18px 12px;
-        background: rgba(2, 6, 23, 0.98);
-        border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-      }
-
-      .menu-toggle {
-        display: inline-flex;
+      section {
+        padding: 72px 18px;
       }
     }
 
-    @media (max-width: 520px) {
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+    @media (max-width: 720px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .nav-inner {
+        padding-inline: 16px;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .hero-heading {
+        font-size: 2.1rem;
+      }
+
+      .hero::before {
+        background-size: 900px auto;
+        opacity: 0.07;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Launch strip -->
-    <div class="launch-banner">
-      EARTHA FRESH · MASALA SODA LAUNCHING SOON · JOIN OUR RETAIL & HOSPITALITY LIST
-    </div>
-
-    <!-- Header -->
-    <header>
-      <div class="nav-inner">
-        <!-- New brand: image logo -->
-        <a href="#top" class="brand-mark">
-          <img
-            src="earthafresh-logo.png"
-            alt="Eartha Fresh logo"
-            class="brand-image"
-          />
-        </a>
-
-        <nav>
-          <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
-            ☰
-          </button>
-          <div class="nav-links" id="navLinks">
-            <a href="#hero">Home</a>
-            <a href="#products">Products</a>
-            <a href="#story">Story</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <button
-            class="nav-cta"
-            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-          >
-            <span class="dot"></span>
-            Retail &amp; Wholesale
-          </button>
-        </nav>
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo-mark">
+          <img src="images/earthafresh-logo.png" alt="Eartha Fresh logo" />
+        </div>
+        <div class="nav-brand-text">Eartha Fresh</div>
       </div>
-    </header>
 
-    <main id="top">
-      <!-- Hero -->
-      <section class="section hero" id="hero">
-        <div>
-          <div class="hero-tag-row">
-            <div class="hero-tag">
-              <span class="hero-tag-dot"></span>
-              Peacock Covert · 355ml sleek can
-            </div>
-            <div class="hero-tag secondary">
-              Launching soon in British Columbia
-            </div>
-          </div>
+      <nav class="nav-menu">
+        <a href="#story">Story</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#retail">Retail &amp; Wholesale</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-          <h1 class="hero-title">
-            Modern masala soda, <span class="accent">born in British Columbia.</span>
+      <div class="nav-chip">Peacock Covert Edition</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-gradient"></div>
+      <div class="hero-inner">
+        <div class="hero-left">
+          <img
+            src="images/earthafresh-logo.png"
+            alt="Eartha Fresh full logo"
+            class="hero-logo"
+          />
+
+          <p class="hero-tagline">Food &amp; Beverage · British Columbia</p>
+
+          <h1 class="hero-heading">
+            Masala Soda,
+            <span>reimagined with Peacock Covert colors.</span>
           </h1>
 
-          <p class="hero-subtitle">
-            Eartha Fresh creates small-batch, Indian-inspired beverages with a premium,
-            minimalist aesthetic. Our signature <strong>Masala Soda</strong> is bright,
-            spiced and designed to look as good on the shelf as it tastes in the glass.
+          <p class="hero-text">
+            Eartha Fresh brings the sparkle of traditional Indian masala soda into
+            a modern 355&nbsp;mL sleek can. Crafted locally in British Columbia,
+            inspired by flavors loved across generations.
           </p>
 
           <div class="hero-badges">
-            <div class="hero-badge">Made in Canada</div>
-            <div class="hero-badge">Matte-black label</div>
-            <div class="hero-badge">Design-led beverage brand</div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              Coming Soon · 355&nbsp;mL
+            </div>
+            <div class="badge">
+              Small Batch · Crafted with Care
+            </div>
           </div>
 
-          <div class="hero-actions">
-            <button
-              class="btn-primary"
-              onclick="document.getElementById('contac
+          <div class="hero-cta">
+            <a href="#products"><button class="btn-primary">View Product</button></a>
+            <a href="#retail"><button class="btn-secondary">Retail &amp; Wholesale</button></a>
+          </div>
+        </div>
 
+        <div class="hero-right">
+          <div class="can-card">
+            <div class="can-tag">Masala Soda · Coming Soon</div>
+            <div class="can-image-wrap">
+              <img
+                src="images/masala-soda-can.png"
+                alt="Eartha Fresh Masala Soda 355 mL sleek can"
+              />
+            </div>
+            <div class="can-meta">
+              <p><strong>Peacock Covert Collection</strong></p>
+              <p>
+                A sparkling masala soda with bright citrus, gentle spice, and a
+                refreshing finish — inspired by Indian street-side soda culture,
+                crafted for today.
+              </p>
+              <p>355&nbsp;mL · Naturally Inspired · Small Batch</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story">
+      <div class="section-inner">
+        <p class="section-kicker">Our Story</p>
+        <h2 class="section-title">From Indian street corners to the Pacific Coast.</h2>
+        <p class="section-subtitle">
+          Eartha Fresh was born from a simple memory: the fizz, spice, and joy of
+          masala soda shared with friends and family on warm evenings in India.
+          We wanted to bottle that feeling — and bring it to British Columbia.
+        </p>
+
+        <div class="story-layout">
+          <div class="story-block">
+            <h3>A tradition we grew up with.</h3>
+            <p>
+              In India, masala soda isn’t just a drink. It’s a ritual. Fresh lime
+              squeezed into a chilled glass, a pinch of roasted spices, a touch of
+              salt, and a burst of bubbles — mixed on the spot while everyone
+              waits for the first sip.
+            </p>
+            <p>
+              Those flavors inspired Eartha Fresh. Our Masala Soda takes that
+              classic street-side experience and refines it into a modern,
+              ready-to-enjoy beverage.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <h3>Why masala soda feels good.</h3>
+            <p>
+              Traditional masala sodas are often enjoyed after meals and on hot
+              days. They typically combine:
+            </p>
+            <ul>
+              <li>Citrus for brightness and refreshment.</li>
+              <li>Warm spices like cumin, black salt, and pepper for depth.</li>
+              <li>A lightly sparkling base that leaves you feeling uplifted.</li>
+            </ul>
+            <p>
+              Eartha Fresh draws inspiration from these time-honoured recipes,
+              using carefully selected ingredients to create a drink that feels
+              comforting, familiar, and refreshingly new.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+      <div class="section-inner">
+        <p class="section-kicker">Products</p>
+        <h2 class="section-title">Masala Soda · Peacock Covert Edition</h2>
+        <p class="section-subtitle">
+          Our debut release celebrates the colors of a peacock covert — deep teal,
+          rich blue, warm gold, and vibrant magenta — wrapped around a sleek,
+          matte-black 355&nbsp;mL can.
+        </p>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-edition">Peacock Covert Collection</div>
+            <div class="product-name">Masala Soda</div>
+            <div class="product-pill">
+              <span></span>
+              Coming Soon
+            </div>
+
+            <p class="product-copy">
+              A sparkling masala soda inspired by traditional Indian flavors —
+              reimagined with a clean, modern profile. Expect bright citrus,
+              gentle spice, and a refreshing finish that pairs beautifully with
+              rich meals, snacks, and late-night conversations.
+            </p>
+
+            <p class="product-copy">
+              Designed for celebrations, dinner tables, and everyday moments,
+              Eartha Fresh Masala Soda is crafted to be enjoyed on its own or as a
+              mixer in creative mocktails.
+            </p>
+
+            <div class="product-specs">
+              <div class="spec-chip">355&nbsp;mL sleek can</div>
+              <div class="spec-chip">Matte black finish</div>
+              <div class="spec-chip">Peacock Covert color palette</div>
+              <div class="spec-chip">Small-batch crafted</div>
+            </div>
+          </div>
+
+          <div class="product-can-mini">
+            <img
+              src="images/masala-soda-can.png"
+              alt="Masala Soda by Eartha Fresh – Peacock Covert can"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-inner">
+        <p class="section-kicker">About Us</p>
+        <h2 class="section-title">Locally made, globally inspired.</h2>
+        <p class="section-subtitle">
+          Eartha Fresh is a British Columbia–based food and beverage company
+          that blends local craftsmanship with flavors inspired by the world.
+        </p>
+
+        <div class="story-layout">
+          <div class="story-block">
+            <h3>Locally crafted in BC.</h3>
+            <p>
+              Every batch of Eartha Fresh Masala Soda is crafted close to home.
+              We work with local partners wherever possible and pay attention to
+              the finer details — from carbonation levels to the feel of the can
+              in your hand.
+            </p>
+            <p>
+              Being local means we can stay small, flexible, and focused on
+              quality rather than quantity.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <h3>Ingredients sourced from around the world.</h3>
+            <p>
+              To capture the soul of masala soda, we look beyond borders. Our
+              recipes are inspired by spices and ingredients traditionally used in
+              Indian kitchens — combined thoughtfully with high-quality
+              components available here in Canada.
+            </p>
+            <p>
+              The result is a drink that feels familiar to those who grew up with
+              masala soda and excitingly new to those discovering it for the first
+              time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retail & Wholesale -->
+    <section id="retail">
+      <div class="section-inner">
+        <p class="section-kicker">Retail &amp; Wholesale</p>
+        <h2 class="section-title">Stock Eartha Fresh in your store or venue.</h2>
+        <p class="section-subtitle">
+          We’re gearing up for launch and inviting early retail and wholesale
+          partners who want a distinctive, modern masala soda on their shelves
+          and menus.
+        </p>
+
+        <div class="retail-grid">
+          <div class="retail-card">
+            <h3>For retailers &amp; bottle shops</h3>
+            <p>
+              Add a bold, eye-catching can to your beverage lineup. Eartha Fresh
+              Masala Soda stands out in fridges and on shelves with its matte
+              black finish and peacock-inspired details.
+            </p>
+            <ul>
+              <li>Ideal for specialty grocers, South Asian markets, and cafés.</li>
+              <li>Perfect as a non-alcoholic feature beverage.</li>
+              <li>Year-round appeal with nostalgic yet modern flavor.</li>
+            </ul>
+            <p class="retail-highlight">
+              Get in touch for launch timelines, case sizes, and introductory
+              pricing.
+            </p>
+          </div>
+
+          <div class="retail-card">
+            <h3>For restaurants, bars &amp; events</h3>
+            <p>
+              Use Eartha Fresh Masala Soda as a signature stand-alone drink or as
+              a base for inventive mocktails and cocktail programs.
+            </p>
+            <ul>
+              <li>Consistent flavor profile, easy to serve chilled.</li>
+              <li>Pairs beautifully with Indian, fusion, and comfort foods.</li>
+              <li>Great fit for weddings, festivals, and catered events.</li>
+            </ul>
+            <p class="retail-highlight">
+              Email us with your volume needs and we’ll tailor a wholesale option
+              for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-inner">
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Let’s talk masala soda.</h2>
+        <p class="section-subtitle">
+          Whether you’re curious about our launch, interested in retail or
+          wholesale, or just love masala soda as much as we do — we’d love to
+          hear from you.
+        </p>
+
+        <div class="contact-layout">
+          <div class="contact-details">
+            <p><strong>Email</strong></p>
+            <p>
+              <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a>
+            </p>
+
+            <p style="margin-top: 12px;"><strong>Mobile</strong></p>
+            <p>
+              <a href="tel:+17788838590">+1 (778) 883-8590</a>
+            </p>
+
+            <p style="margin-top: 18px;">
+              For retail and wholesale inquiries, please include your business
+              name, location, and an estimate of the volume you’re interested in.
+            </p>
+
+            <p class="contact-highlight">
+              We’re currently in the “coming soon” phase — reaching out now means
+              you’ll be among the first to know when Masala Soda is ready to ship.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Send us a message</h3>
+            <!-- Note: To make this form functional, point "action" to your form handler or service. -->
+            <form action="#" method="post">
+              <div class="input-row">
+                <div style="flex: 1 1 140px;">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div style="flex: 1 1 140px;">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="topic">Inquiry Type</label>
+                <input
+                  id="topic"
+                  name="topic"
+                  type="text"
+                  placeholder="Retail, wholesale, general question..."
+                />
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us how we can help."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="margin-top: 10px;">
+                Submit Enquiry
+              </button>
+
+              <p class="contact-note">
+                This form is for layout only. To receive messages, connect it to
+                your preferred form service or email handler.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Eartha Fresh. All rights reserved.</span>
+      <span>Crafted in British Columbia · Inspired by India.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
