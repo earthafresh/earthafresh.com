@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eartha Fresh – Masala Soda & Natural Beverages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Eartha Fresh – modern, naturally-inspired beverages crafted in British Columbia. Try our signature Masala Soda from the Peacock Covert collection."
+  />
+  <style>
+    :root {
+      --bg-dark: #05070a;
+      --bg-card: #0c1117;
+      --accent: #1db8a3;
+      --accent-soft: rgba(29, 184, 163, 0.15);
+      --accent-gold: #d6b676;
+      --text-main: #f5f7fa;
+      --text-muted: #a3b0c2;
+      --border-subtle: #1e2936;
+      --radius-xl: 22px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #101928 0, #020308 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 10, 0.96),
+        rgba(5, 7, 10, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 0, #4de6d0, #0d2932 38%, #020308);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 12px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.18s ease-out;
+      background: linear-gradient(to right, var(--accent), var(--accent-gold));
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(29, 184, 163, 0.14), transparent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-cta span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #4de6d0, #0a6154);
+      box-shadow: 0 0 12px rgba(74, 222, 128, 0.7);
+    }
+
+    .nav-cta:hover {
+      background: radial-gradient(circle at 0 0, rgba(29, 184, 163, 0.26), transparent);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-cta:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 52px 18px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: center;
+      padding-top: 64px;
+      padding-bottom: 60px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(29, 184, 163, 0.16), transparent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1.hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    h1.hero-title span.accent {
+      background: linear-gradient(120deg, var(--accent), var(--accent-gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 32rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #020617;
+      background: radial-gradient(circle at 0 0, #5be7d2, #1db8a3 45%, #0f766e);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.15s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-ghost {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.75);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      max-width: 26rem;
+      line-height: 1.6;
+    }
+
+    .hero-note strong {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .can-card {
+      width: 260px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .can-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(
+        circle at top,
+        rgba(45, 212, 191, 0.08),
+        transparent 55%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .can-label {
+      position: relative;
+      border-radius: calc(var(--radius-xl) - 4px);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: radial-gradient(
+          circle at 20% 0,
+          rgba(56, 189, 248, 0.3),
+          transparent 46%
+        ),
+        radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.15), transparent 55%),
+        #020617;
+      padding: 16px 14px 18px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .label-pill {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 182, 118, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.7);
+      margin-bottom: 14px;
+    }
+
+    .label-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+    }
+
+    .label-title {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 8px;
+    }
+
+    .label-subtitle {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .peacock-motif {
+      width: 100%;
+      height: 90px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background-image: radial-gradient(circle at 10% 0, #1db8a3 0, transparent 45%),
+        radial-gradient(circle at 35% 80%, #0ea5e9 0, transparent 45%),
+        radial-gradient(circle at 70% 20%, #22c55e 0, transparent 52%),
+        radial-gradient(circle at 95% 60%, #fbbf24 0, transparent 45%);
+      opacity: 0.9;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .peacock-motif::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      inset-block: 40%;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(148, 163, 184, 0.8),
+        transparent
+      );
+      opacity: 0.7;
+    }
+
+    .label-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .label-footer strong {
+      font-size: 13px;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .label-made {
+      text-align: right;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .label-made span {
+      display: block;
+    }
+
+    .can-meta {
+      position: relative;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .can-meta span {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .glow-orbit {
+      position: absolute;
+      inset: 12px -26px auto;
+      height: 12px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 50% 50%, rgba(29, 184, 163, 0.8), transparent 60%);
+      opacity: 0.5;
+      filter: blur(10px);
+    }
+
+    .hero-chip {
+      position: absolute;
+      top: 10%;
+      right: -6px;
+      translate: -12px 8px;
+      padding: 9px 13px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 11px;
+      max-width: 180px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.75);
+    }
+
+    .hero-chip span {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    /* Section Titles */
+    .section-header {
+      margin-bottom: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .about-card {
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), #020617);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7);
+    }
+
+    .about-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .about-bullet {
+      margin-top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(45, 212, 191, 0.8);
+      flex-shrink: 0;
+    }
+
+    .about-pill-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .about-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Products */
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .product-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 18px 18px;
+      background: radial-gradient(circle at 10% 0, #020617, #020617 60%, #020617);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .product-label-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .product-body h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .product-body h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+    }
+
+    .product-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .product-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .spec {
+      padding: 8px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .spec-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .spec-value {
+      font-size: 13px;
+    }
+
+    .product-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .product-cta-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .product-stamp {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
+      background: radial-gradient(circle at 0 0, #020617, #020617 60%, #020617);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    .field {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      padding: 9px 14px;
+      font-size: 13px;
+      color: var(--text-main);
+      width: 100%;
+      outline: none;
+    }
+
+    .field::placeholder {
+      color: #64748b;
+    }
+
+    textarea.field {
+      border-radius: 16px;
+      min-height: 90px;
+      resize: vertical;
+      padding-top: 10px;
+    }
+
+    .contact-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .contact-list {
+      margin-top: 12px;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-list span.label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 11px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(30, 41, 59, 0.9);
+      padding: 18px;
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top, #020617, #000 70%);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero,
+      .about-grid,
+      .product-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        inset-inline: 0;
+        top: 52px;
+        padding: 10px 18px 12px;
+        background: rgba(3, 7, 18, 0.98);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.32);
+      }
+
+      nav {
+        align-items: center;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header / Nav -->
+    <header>
+      <div class="nav-inner">
+        <a href="#top" class="brand-mark">
+          <div class="brand-logo">EF</div>
+          <div class="brand-text">
+            <span>Eartha&nbsp;Fresh</span>
+            <span>food &amp; beverage bc</span>
+          </div>
+        </a>
+
+        <nav>
+          <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+            ☰
+          </button>
+          <div class="nav-links" id="navLinks">
+            <a href="#products">Products</a>
+            <a href="#about">Story</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            <span class="dot"></span>
+            Stockists / Wholesale
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="section hero" id="hero">
+        <div>
+          <div class="hero-tag">
+            <span class="hero-tag-dot"></span>
+            Peacock Covert Collection · 355ml
+          </div>
+          <h1 class="hero-title">
+            Modern masala soda, <span class="accent">born in British Columbia.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Eartha Fresh crafts small-batch, naturally-inspired beverages with a
+            premium, minimalist edge. Our signature <strong>Masala Soda</strong> is bold,
+            bright and quietly sophisticated—like a whisper from a peacock feather.
+          </p>
+
+          <div class="hero-badges">
+            <div class="hero-badge">Made in Canada</div>
+            <div class="hero-badge">355ml sleek can</div>
+            <div class="hero-badge">Modern &amp; minimalist</div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+              View Masala Soda
+              <span>↠</span>
+            </button>
+            <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Partner with us
+            </button>
+          </div>
+
+          <p class="hero-note">
+            <strong>For retailers &amp; restaurants:</strong> Eartha Fresh offers
+            crisp, eye-catching cans designed to sit beautifully on shelves, fridges
+            and tabletops.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="can-card">
+            <div class="glow-orbit"></div>
+            <div class="can-label">
+              <div class="label-pill">
+                <span class="label-pill-dot"></span>
+                Peacock Covert · Limited
+              </div>
+              <div class="label-title">MASALA SODA</div>
+              <div class="label-subtitle">By Eartha Fresh · 355ml</div>
+
+              <div class="peacock-motif"></div>
+
+              <div class="label-footer">
+                <div>
+                  <strong>Low fizz</strong>
+                  <div style="font-size: 10px; color: var(--text-muted);">
+                    Spiced citrus · Subtle herbs
+                  </div>
+                </div>
+                <div class="label-made">
+                  <span>Made in</span>
+                  <span style="color: var(--accent-gold);">Canada</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="can-meta">
+              <span>355ml sleek can</span>
+              <span>Peacock Covert design</span>
+            </div>
+          </div>
+
+          <div class="hero-chip">
+            <span>Launching soon</span>
+            Perfect for boutique grocers, cafes, and modern Indian fusion concepts
+            looking for a fresh, elevated soda option.
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section class="section" id="products">
+        <div class="section-header">
+          <div class="section-kicker">Products</div>
+          <h2 class="section-title">Signature Masala Soda · Peacock Covert</h2>
+          <p class="section-subtitle">
+            A modern interpretation of classic masala soda—clean label, bold flavour,
+            and a matte-black aesthetic built for design-conscious shelves.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <div>
+            <div class="product-card">
+              <div class="product-label-top">
+                <span>Masala Soda · 355ml</span>
+                <span>Batch crafted in BC</span>
+              </div>
+              <div class="product-body">
+                <h3>MASALA SODA</h3>
+                <h4>Peacock Covert Edition</h4>
+                <p>
+                  Bright citrus, gentle spice and a refined fizz profile designed to
+                  complement food rather than overpower it. Think less sugary pop,
+                  more modern spiced spritz—served in a tall, sleek can with a
+                  minimalist peacock-inspired label.
+                </p>
+
+                <div class="product-specs">
+                  <div class="spec">
+                    <div class="spec-label">Format</div>
+                    <div class="spec-value">355ml tall sleek can</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec-label">Profile</div>
+                    <div class="spec-value">Spiced citrus · Low fizz</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec-label">Origin</div>
+                    <div class="spec-value">Crafted in BC, Canada</div>
+                  </div>
+                </div>
+
+                <p class="product-note">
+                  Matte-black label with subtle peacock feather geometry, premium
+                  typography and plenty of negative space for a clean, luxury look.
+                </p>
+
+                <div class="product-cta-row">
+                  <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    Request pricing sheet
+                  </button>
+                  <div class="product-stamp">
+                    Ideal for: retailers · cafes · restaurants
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="about-card">
+              <h3>Perfect for design-focused spaces</h3>
+              <p>
+                Eartha Fresh was built for shelves where details matter—independent
+                grocers, modern South Asian concepts, boutique cafes and curated
+                bottle shops.
+              </p>
+              <ul class="about-list">
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>Minimalist black-matte label with peacock covert motif.</div>
+                </li>
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>
+                    Easy to stack, display and photograph for social media and menus.
+                  </div>
+                </li>
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>
+                    Flexible for stand-alone fridges, bar service, catering and events.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About / Story -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <div class="section-kicker">Brand Story</div>
+          <h2 class="section-title">Minimalist design, maximal flavour.</h2>
+          <p class="section-subtitle">
+            Eartha Fresh is a British Columbia–based food and beverage brand marrying
+            nostalgic flavours with clean, contemporary design. No clutter—on the
+            palate or on the label.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <div class="about-card">
+              <h3>Why Eartha Fresh?</h3>
+              <p>
+                We started with a simple idea: take the flavours we grew up with and
+                present them in a way that feels at home on the most modern shelves in
+                Vancouver, Toronto or London.
+              </p>
+              <ul class="about-list">
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>
+                    <strong>Premium look:</strong> inspired by the subtle shimmer of a
+                    peacock feather, translated into clean lines and gradients.
+                  </div>
+                </li>
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>
+                    <strong>Thoughtful flavour design:</strong> balanced spice, not
+                    overpowering sweetness.
+                  </div>
+                </li>
+                <li>
+                  <div class="about-bullet"></div>
+                  <div>
+                    <strong>Built for hospitality:</strong> perfect for pairing with
+                    food, cocktails or tasting menus.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="about-card">
+              <h3>Brand pillars</h3>
+              <div class="about-pill-grid">
+                <div class="about-pill-row">
+                  <div class="about-pill">Modern &amp; minimalist</div>
+                  <div class="about-pill">Indian-inspired flavours</div>
+                </div>
+                <div class="about-pill-row">
+                  <div class="about-pill">Matte-black aesthetic</div>
+                  <div class="about-pill">Design-led packaging</div>
+                </div>
+                <div class="about-pill-row">
+                  <div class="about-pill">Small-batch mindset</div>
+                  <div class="about-pill">Made in Canada</div>
+                </div>
+              </div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 14px;">
+                We’re building a collection under the
+                <strong>“Peacock Covert”</strong> theme—a family of beverages that share
+                the same elegant, feather-inspired visual language.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Stock Eartha Fresh or start a collab.</h2>
+          <p class="section-subtitle">
+            Whether you’re a retailer, cafe, restaurant or event partner, we’d love to
+            chat about Masala Soda and future flavours in the Eartha Fresh lineup.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <div class="contact-card">
+              <form onsubmit="handleFormSubmit(event)">
+                <div>
+                  <label class="field-label" for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="field"
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label class="field-label" for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="field"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label class="field-label" for="message">Message</label>
+                  <textarea
+                    id="message"
+                    class="field"
+                    placeholder="Tell us about your shop, cafe, restaurant or project..."
+                    required
+                  ></textarea>
+                </div>
+                <button class="btn-primary" type="submit">
+                  Send message
+                  <span>✶</span>
+                </button>
+                <p
+                  id="formStatus"
+                  style="font-size: 11px; color: var(--text-muted); margin-top: 6px;"
+                >
+                  This demo form doesn’t send yet—connect it to your email or form
+                  tool.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-card">
+              <p class="contact-meta">
+                Prefer email or socials? Reach out directly and we’ll respond with our
+                latest product sheet, pricing and lead times.
+              </p>
+              <ul class="contact-list">
+                <li>
+                  <span class="label">Email</span>
+                  hello@earthafresh.com
+                </li>
+                <li>
+                  <span class="label">Based in</span>
+                  British Columbia, Canada
+                </li>
+                <li>
+                  <span class="label">Ideal partners</span>
+                  Independent grocers · speciality South Asian stores · cafes ·
+                  restaurants · caterers · bars
+                </li>
+              </ul>
+              <p
+                style="
+                  margin-top: 16px;
+                  font-size: 12px;
+                  color: var(--text-muted);
+                  line-height: 1.7;
+                "
+              >
+                When you’re ready to go live, connect this site to your preferred
+                platform (Shopify, Squarespace, Webflow, WordPress, etc.) and plug in
+                your real contact forms and e-commerce flows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Eartha Fresh. All rights reserved.</div>
+        <div class="footer-tags">
+          <div class="footer-tag">Masala Soda</div>
+          <div class="footer-tag">Peacock Covert</div>
+          <div class="footer-tag">Modern Beverage Brand</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
+    }
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo form handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const status = document.getElementById("formStatus");
+      if (status) {
+        status.textContent =
+          "Thanks for your message! Connect this form to your email or backend to start receiving enquiries.";
+      }
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
