@@ -34,6 +34,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
+      /* Global dark gradient background */
       background:
         radial-gradient(circle at top, #0b1220 0, #020308 55%, #000 100%);
       color: var(--text-main);
@@ -89,42 +90,11 @@
       gap: 10px;
     }
 
-    .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 25% 0, #4de6d0, #0d2932 42%, #020308 100%);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: 0.06em;
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.9),
-        0 14px 30px rgba(0, 0, 0, 0.7);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text span:first-child {
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span:last-child {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+    /* New: header logo image */
+    .brand-image {
+      height: 46px;
+      width: auto;
+      display: block;
     }
 
     nav {
@@ -222,7 +192,7 @@
       padding: 52px 18px;
     }
 
-    /* Hero */
+    /* Launch strip */
 
     .launch-banner {
       width: 100%;
@@ -235,6 +205,8 @@
       padding: 7px 10px;
     }
 
+    /* Hero */
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -242,6 +214,24 @@
       align-items: center;
       padding-top: 56px;
       padding-bottom: 60px;
+
+      /* New: enable pseudo-element background */
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* New: transparent-style logo only behind hero */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        url('earthafresh-logo.png') center 10% / 420px auto no-repeat;
+      opacity: 0.10;          /* controls “transparency” */
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: screen; /* soft blend with gradient */
     }
 
     .hero-tag-row {
@@ -604,7 +594,7 @@
       line-height: 1.6;
     }
 
-    /* About / Story + Products */
+    /* Shared 2-column layouts */
 
     .two-col {
       display: grid;
@@ -957,12 +947,13 @@
     <!-- Header -->
     <header>
       <div class="nav-inner">
+        <!-- New brand: image logo -->
         <a href="#top" class="brand-mark">
-          <div class="brand-logo">EF</div>
-          <div class="brand-text">
-            <span>Eartha&nbsp;Fresh</span>
-            <span>food &amp; beverage · bc</span>
-          </div>
+          <img
+            src="earthafresh-logo.png"
+            alt="Eartha Fresh logo"
+            class="brand-image"
+          />
         </a>
 
         <nav>
@@ -1019,419 +1010,5 @@
           <div class="hero-actions">
             <button
               class="btn-primary"
-              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-            >
-              Join launch &amp; pricing list
-              <span>↠</span>
-            </button>
-            <button
-              class="btn-ghost"
-              onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"
-            >
-              View Masala Soda
-            </button>
-          </div>
-
-          <p class="hero-note">
-            <strong>For retailers, cafes &amp; restaurants:</strong> share your details and
-            we’ll send the first look at can design, wholesale pricing and launch
-            timelines for <em>Masala Soda · Peacock Covert Edition</em>.
-          </p>
-        </div>
-
-        <div class="hero-visual">
-          <div class="can-card">
-            <div class="glow-orbit"></div>
-            <div class="can-label">
-              <div class="label-pill">
-                <span class="label-pill-dot"></span>
-                Peacock Covert · Launch Series
-              </div>
-              <div class="label-title">MASALA SODA</div>
-              <div class="label-subtitle">By Eartha Fresh · 355ml</div>
-
-              <div class="peacock-motif"></div>
-
-              <div class="label-footer">
-                <div>
-                  <strong>Low fizz</strong>
-                  <div style="font-size: 10px; color: var(--text-muted);">
-                    Spiced citrus · Subtle herbs
-                  </div>
-                </div>
-                <div class="label-made">
-                  <span>Made in</span>
-                  <span style="color: var(--accent-gold);">Canada</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="can-meta">
-              <span>355ml sleek · matte black</span>
-              <span>Peacock covert design</span>
-            </div>
-          </div>
-
-          <div class="hero-chip">
-            <span>Launching soon</span>
-            Join our early list to secure launch allocations for your shop, cafe or
-            restaurant in BC.
-          </div>
-        </div>
-      </section>
-
-      <!-- Products -->
-      <section class="section" id="products">
-        <div class="section-header">
-          <div class="section-kicker">Products</div>
-          <h2 class="section-title">Signature Masala Soda · Peacock Covert Edition</h2>
-          <p class="section-subtitle">
-            A modern take on classic masala soda—balanced spice, low fizz and a
-            minimalist, peacock-inspired 355ml can developed for design-conscious shelves.
-          </p>
-        </div>
-
-        <div class="two-col">
-          <div>
-            <div class="card">
-              <div class="product-top">
-                <span>Masala Soda · 355ml</span>
-                <span>Batch crafted in BC</span>
-              </div>
-
-              <h3>MASALA SODA</h3>
-              <p style="text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px; color: var(--accent-gold); margin-bottom: 8px;">
-                Peacock Covert Collection
-              </p>
-
-              <p>
-                Bright citrus, gentle masala spice and a refined fizz designed to
-                complement food rather than overpower it. Think less sugary soft drink,
-                more modern spiced spritz served in a tall, sleek, matte-black can.
-              </p>
-
-              <div class="product-specs">
-                <div class="spec">
-                  <div class="spec-label">Format</div>
-                  <div class="spec-value">355ml tall sleek can</div>
-                </div>
-                <div class="spec">
-                  <div class="spec-label">Profile</div>
-                  <div class="spec-value">Spiced citrus · Low fizz</div>
-                </div>
-                <div class="spec">
-                  <div class="spec-label">Ideal for</div>
-                  <div class="spec-value">Retail · cafe · restaurant</div>
-                </div>
-              </div>
-
-              <p class="product-subnote">
-                Designed around a black matte label with subtle peacock feather geometry,
-                premium typography and plenty of negative space for a clean, luxury look.
-              </p>
-
-              <div class="product-cta-row">
-                <button
-                  class="btn-primary"
-                  onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-                >
-                  Request wholesale info
-                </button>
-                <div class="stamp">
-                  Launch list · limited first batch
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="product-photo-card">
-              <!-- Replace src with your real product photo when ready -->
-              <!-- <img src="images/masala-soda-can.jpg" alt="Eartha Fresh Masala Soda can" /> -->
-              <div class="photo-placeholder">
-                Add your Masala Soda can photo here<br />
-                (355ml sleek · black matte · peacock covert label)
-              </div>
-              <p class="photo-caption">
-                When you have final product shots, replace this placeholder with actual
-                images from your photoshoot or Canva mockups.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Story -->
-      <section class="section" id="story">
-        <div class="section-header">
-          <div class="section-kicker">Brand Story</div>
-          <h2 class="section-title">Minimalist design. Maximal flavour memory.</h2>
-          <p class="section-subtitle">
-            Eartha Fresh is a British Columbia–based food and beverage brand that
-            reimagines nostalgic flavours from our roots in a clean, modern visual
-            language built for today’s shelves and fridges.
-          </p>
-        </div>
-
-        <div class="two-col">
-          <div>
-            <div class="card">
-              <h3>Why we created Eartha Fresh</h3>
-              <p>
-                We wanted a masala soda that felt at home in the most stylish cafes,
-                tasting menus and boutique grocers in Vancouver—without losing the
-                comfort of the flavours we grew up with.
-              </p>
-              <ul class="list">
-                <li>
-                  <div class="bullet"></div>
-                  <div>
-                    <strong>Premium look &amp; feel:</strong> inspired by the shimmer of a
-                    peacock feather, translated into subtle gradients and geometry on a
-                    matte-black canvas.
-                  </div>
-                </li>
-                <li>
-                  <div class="bullet"></div>
-                  <div>
-                    <strong>Balanced spice profile:</strong> bright citrus, gentle herbs
-                    and spice, low sweetness, low fizz.
-                  </div>
-                </li>
-                <li>
-                  <div class="bullet"></div>
-                  <div>
-                    <strong>Built for hospitality:</strong> equally comfortable in a
-                    fridge, behind a bar, at a food truck or on a tasting menu.
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <div class="card">
-              <h3>Brand pillars</h3>
-              <div class="pill-grid">
-                <div class="pill-row">
-                  <div class="pill">Modern &amp; minimalist</div>
-                  <div class="pill">Indian-inspired flavours</div>
-                </div>
-                <div class="pill-row">
-                  <div class="pill">Black matte aesthetic</div>
-                  <div class="pill">Design-led packaging</div>
-                </div>
-                <div class="pill-row">
-                  <div class="pill">Small-batch mindset</div>
-                  <div class="pill">Made in Canada</div>
-                </div>
-              </div>
-              <p
-                style="font-size: 12px; color: var(--text-muted); margin-top: 14px; line-height: 1.7;"
-              >
-                Under the <strong>“Peacock Covert”</strong> theme, we’re building a
-                collection of beverages that share the same elegant feather-inspired
-                language—from Masala Soda to future flavour releases.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section class="section" id="contact">
-        <div class="section-header">
-          <div class="section-kicker">Contact</div>
-          <h2 class="section-title">Stock Eartha Fresh or start a collaboration.</h2>
-          <p class="section-subtitle">
-            Share a few details about your shop, cafe, restaurant or project. We’ll send
-            launch dates, wholesale pricing and allocation details for Masala Soda.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <div>
-            <div class="contact-card">
-              <!-- Simple mailto form: this "works" by opening the user's email program
-                   with the information filled in. Replace with a form service later if you prefer. -->
-              <form onsubmit="handleFormSubmit(event)">
-                <div>
-                  <label class="field-label" for="name">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    class="field"
-                    placeholder="Your full name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="field-label" for="business">Business / Project</label>
-                  <input
-                    type="text"
-                    id="business"
-                    class="field"
-                    placeholder="Store, cafe, restaurant or event"
-                  />
-                </div>
-                <div>
-                  <label class="field-label" for="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    class="field"
-                    placeholder="you@example.com"
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="field-label" for="message">Message</label>
-                  <textarea
-                    id="message"
-                    class="field"
-                    placeholder="Tell us where you’re based and how you’d like to work with Eartha Fresh..."
-                    required
-                  ></textarea>
-                </div>
-                <button class="btn-primary" type="submit">
-                  Send via email
-                  <span>✶</span>
-                </button>
-                <p
-                  id="formStatus"
-                  style="font-size: 11px; color: var(--text-muted); margin-top: 6px;"
-                >
-                  This form opens your email app with the details pre-filled to
-                  <strong>earthafresh@gmail.com</strong>.
-                </p>
-              </form>
-            </div>
-          </div>
-
-          <div>
-            <div class="contact-card">
-              <p class="contact-meta">
-                Prefer to reach out directly? Call, email or DM and we’ll respond with
-                launch details and a wholesale information pack.
-              </p>
-              <ul class="contact-list">
-                <li>
-                  <span class="label">Email</span>
-                  <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a>
-                </li>
-                <li>
-                  <span class="label">Phone / WhatsApp</span>
-                  <a href="tel:+17788838590">+1 (778) 883-8590</a>
-                </li>
-                <li>
-                  <span class="label">Based in</span>
-                  British Columbia, Canada
-                </li>
-                <li>
-                  <span class="label">Social</span>
-                  <div class="social-row">
-                    <a
-                      class="social-pill"
-                      href="https://instagram.com/earthafresh"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span class="icon">📸</span> Instagram / @earthafresh
-                    </a>
-                    <a
-                      class="social-pill"
-                      href="https://tiktok.com/@earthafresh"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span class="icon">🎥</span> TikTok / @earthafresh
-                    </a>
-                  </div>
-                </li>
-              </ul>
-              <p
-                style="
-                  margin-top: 16px;
-                  font-size: 12px;
-                  color: var(--text-muted);
-                  line-height: 1.7;
-                "
-              >
-                Once production is live, this page can link to online ordering (Shopify,
-                restaurant suppliers or direct wholesale). For now, it’s your
-                <strong>launch landing page</strong>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Eartha Fresh. All rights reserved.</div>
-        <div class="footer-tags">
-          <div class="footer-tag">Masala Soda</div>
-          <div class="footer-tag">Peacock Covert</div>
-          <div class="footer-tag">Modern Beverage Brand</div>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    // Mobile nav toggle
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("open");
-        });
-      });
-    }
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Contact form: open mailto with prefilled content
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const business = document.getElementById("business").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      const subject = encodeURIComponent("Eartha Fresh – Launch / Wholesale enquiry");
-      const bodyLines = [
-        "Name: " + name,
-        business ? "Business / Project: " + business : "",
-        "Email: " + email,
-        "",
-        "Message:",
-        message,
-      ].filter(Boolean);
-
-      const body = encodeURIComponent(bodyLines.join("\n"));
-
-      window.location.href =
-        "mailto:earthafresh@gmail.com?subject=" + subject + "&body=" + body;
-
-      const status = document.getElementById("formStatus");
-      if (status) {
-        status.textContent =
-          "Opening your email app... If nothing happens, email us directly at earthafresh@gmail.com.";
-      }
-
-      event.target.reset();
-    }
-  </script>
-</body>
-</html>
+              onclick="document.getElementById('contac
 
