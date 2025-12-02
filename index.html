@@ -90,24 +90,43 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
+    /* Slightly larger, padded logo mark so the artwork breathes */
     .nav-logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      padding: 6px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: radial-gradient(circle at top left, #181b25, #050608);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(135deg, rgba(24,27,37,1), rgba(5,6,8,1));
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Make sure the logo image fits crisply and keeps its aspect ratio */
+    .nav-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      -webkit-font-smoothing: antialiased;
+      image-rendering: -webkit-optimize-contrast;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
     }
 
     .nav-brand-text {
       font-family: "Playfair Display", serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1;
     }
 
     .nav-menu {
@@ -158,7 +177,7 @@
     /* Layout */
 
     main {
-      padding-top: 78px;
+      padding-top: 88px; /* give a touch more space for the slightly larger header */
     }
 
     section {
@@ -210,8 +229,8 @@
       background-image: url("earthafresh-logo.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 1000px auto; /* tweak size if needed */
-      opacity: 0.08;                /* tweak strength if needed */
+      background-size: 720px auto; /* reduced size to be less noisy */
+      opacity: 0.06;                /* reduced strength */
       filter: blur(0.2px);
       pointer-events: none;
     }
@@ -246,8 +265,11 @@
       gap: 20px;
     }
 
+    /* hero logo: allow high-DPI images with a simple srcset if you add @2x later */
     .hero-logo {
       max-width: 420px;
+      display: block;
+      height: auto;
     }
 
     .hero-tagline {
@@ -711,8 +733,8 @@
       }
 
       .hero::before {
-        background-size: 900px auto;
-        opacity: 0.09;
+        background-size: 540px auto;
+        opacity: 0.08;
       }
     }
   </style>
@@ -722,8 +744,8 @@
   <header>
     <div class="nav-inner">
       <div class="nav-brand">
-        <div class="nav-logo-mark">
-          <img src="earthafresh-logo.png" alt="Eartha Fresh logo" />
+        <div class="nav-logo-mark" aria-hidden="true">
+          <img src="earthafresh-logo.png" alt="Eartha Fresh logo" class="nav-logo-img" />
         </div>
         <div class="nav-brand-text">Eartha Fresh</div>
       </div>
@@ -748,8 +770,10 @@
         <div class="hero-left">
           <img
             src="earthafresh-logo.png"
+            srcset="earthafresh-logo.png 1x, earthafresh-logo@2x.png 2x"
             alt="Eartha Fresh full logo"
             class="hero-logo"
+            loading="eager"
           />
 
           <p class="hero-tagline">Food &amp; Beverage · British Columbia</p>
@@ -998,100 +1022,21 @@
     <section id="contact">
       <div class="section-inner">
         <p class="section-kicker">Contact</p>
-        <h2 class="section-title">Let’s talk masala soda.</h2>
-        <p class="section-subtitle">
-          Whether you’re curious about our launch, interested in retail or
-          wholesale, or just love masala soda as much as we do — we’d love to
-          hear from you.
+        <p class="contact-details">
+          Got questions? Get in touch!
         </p>
-
-        <div class="contact-layout">
-          <div class="contact-details">
-            <p><strong>Email</strong></p>
-            <p>
-              <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a>
-            </p>
-
-            <p style="margin-top: 12px;"><strong>Mobile</strong></p>
-            <p>
-              <a href="tel:+17788838590">+1 (778) 883-8590</a>
-            </p>
-
-            <p style="margin-top: 18px;">
-              For retail and wholesale inquiries, please include your business
-              name, location, and an estimate of the volume you’re interested in.
-            </p>
-
-            <p class="contact-highlight">
-              We’re currently in the “coming soon” phase — reaching out now means
-              you’ll be among the first to know when Masala Soda is ready to ship.
-            </p>
-          </div>
-
-          <div class="contact-card">
-            <h3>Send us a message</h3>
-            <!-- NOTE: to make this form actually send email, connect it to a backend or a service like Formspree, Netlify Forms, etc. -->
-            <form action="#" method="post">
-              <div class="input-row">
-                <div style="flex: 1 1 140px;">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" />
-                </div>
-                <div style="flex: 1 1 140px;">
-                  <label for="email">Email</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label for="topic">Inquiry Type</label>
-                <input
-                  id="topic"
-                  name="topic"
-                  type="text"
-                  placeholder="Retail, wholesale, general question..."
-                />
-              </div>
-
-              <div>
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Tell us how we can help."
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary" style="margin-top: 10px;">
-                Submit Enquiry
-              </button>
-
-              <p class="contact-note">
-                This form is for layout only right now. To receive messages,
-                connect it to your preferred form service or email handler.
-              </p>
-            </form>
-          </div>
-        </div>
+        <p class="contact-highlight">
+          Email: hello@earthafresh.com
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <span>© <span id="year"></span> Eartha Fresh. All rights reserved.</span>
-      <span>Crafted in British Columbia · Inspired by India.</span>
+      <p>&copy; 2025 Eartha Fresh. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
