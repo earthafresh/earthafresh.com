@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Eartha Fresh | Masala Soda – </title>
+  <title>Eartha Fresh | Masala Soda</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
@@ -40,13 +40,10 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Poppins", sans-serif;
       background:
         radial-gradient(circle at 0% 0%, #18253a 0%, #050608 55%),
         radial-gradient(circle at 100% 100%, #241324 0%, #050608 70%);
@@ -54,24 +51,15 @@
       line-height: 1.6;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* Header / Nav */
-
+    /* HEADER */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
+      inset: 0 0 auto 0;
+      z-index: 50;
       backdrop-filter: blur(18px);
       background-color: rgba(5, 6, 8, 0.92);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -82,51 +70,37 @@
       margin: 0 auto;
       padding: 14px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      align-items: center;
     }
 
     .nav-brand {
       display: flex;
-      align-items: center;
       gap: 12px;
+      align-items: center;
     }
 
-    /* Slightly larger, padded logo mark so the artwork breathes */
     .nav-logo-mark {
       width: 52px;
       height: 52px;
       padding: 6px;
       border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: linear-gradient(135deg, rgba(24,27,37,1), rgba(5,6,8,1));
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, #181b25, #050608);
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
-    /* Make sure the logo image fits crisply and keeps its aspect ratio */
-    .nav-logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      -webkit-font-smoothing: antialiased;
-      image-rendering: -webkit-optimize-contrast;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
-    }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: contain; }
 
     .nav-brand-text {
       font-family: "Playfair Display", serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.06em;
+      font-size: 1.1rem;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
       font-weight: 700;
-      color: var(--text-main);
-      line-height: 1;
     }
 
     .nav-menu {
@@ -138,101 +112,36 @@
       color: var(--text-muted);
     }
 
-    .nav-menu a {
-      position: relative;
-      padding-bottom: 3px;
-    }
-
-    .nav-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(
-        to right,
-        var(--accent-teal),
-        var(--accent-gold)
-      );
-      transition: width 0.22s ease-out;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    .nav-chip {
-      padding: 0;
-      border-radius: 0;
-      border: none;
-      background: transparent;
-    }
-
     .nav-chip img {
       height: 36px;
       display: block;
     }
 
-    /* Layout */
+    /* MAIN LAYOUT */
+    main { padding-top: 90px; }
 
-    main {
-      padding-top: 88px; /* give a touch more space for the slightly larger header */
-    }
-
-    section {
-      padding: var(--section-padding) 18px;
-    }
+    section { padding: var(--section-padding) 18px; }
 
     .section-inner {
       max-width: var(--max-width);
       margin: 0 auto;
     }
 
-    .section-kicker {
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-teal);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 2.1rem;
-      margin-bottom: 8px;
-    }
-
-    .section-subtitle {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin-bottom: 26px;
-    }
-
-    /* Hero */
-
+    /* HERO */
     .hero {
       position: relative;
-      min-height: calc(100vh - 78px);
+      min-height: calc(100vh - 80px);
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
     }
 
+    /* Background SVG logo */
     .hero::before {
-      /* big faded logo only behind hero */
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("earthafresh-logo.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 720px auto; /* reduced size to be less noisy */
-      opacity: 0.06;                /* reduced strength */
-      filter: blur(0.2px);
+      background: url("earthafresh-logo.svg") center/720px no-repeat;
+      opacity: 0.06;
       pointer-events: none;
     }
 
@@ -240,517 +149,80 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 0% 0%, rgba(16, 164, 184, 0.33), transparent),
-        radial-gradient(circle at 100% 0%, rgba(178, 58, 115, 0.35), transparent),
-        radial-gradient(circle at 100% 100%, rgba(214, 167, 91, 0.25), transparent);
+        radial-gradient(circle at 0% 0%, rgba(16,164,184,0.33), transparent),
+        radial-gradient(circle at 100% 0%, rgba(178,58,115,0.35), transparent),
+        radial-gradient(circle at 100% 100%, rgba(214,167,91,0.25), transparent);
       opacity: 0.65;
-      mix-blend-mode: screen;
       pointer-events: none;
     }
 
     .hero-inner {
       position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 32px 18px 72px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-      z-index: 1;
     }
 
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    /* hero logo: allow high-DPI images with a simple srcset if you add @2x later */
-    .hero-logo {
-      max-width: 420px;
-      display: block;
-      height: auto;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.23em;
-      color: var(--text-muted);
-    }
+    .hero-logo { max-width: 420px; }
 
     .hero-heading {
+      font-size: 2.6rem;
       font-family: "Playfair Display", serif;
-      font-size: 2.5rem;
       line-height: 1.15;
-      max-width: 460px;
     }
 
     .hero-heading span {
-      background-image: linear-gradient(
-        120deg,
-        var(--accent-teal),
-        var(--accent-gold),
-        var(--accent-magenta)
-      );
+      background: linear-gradient(120deg,var(--accent-teal),var(--accent-gold),var(--accent-magenta));
       -webkit-background-clip: text;
       color: transparent;
-    }
-
-    .hero-text {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 480px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 4px;
     }
 
     .badge {
       padding: 7px 14px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255,255,255,0.16);
       font-size: 0.78rem;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: radial-gradient(circle at top left, #181f2c, #050608);
     }
 
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: radial-gradient(circle, var(--accent-gold), var(--accent-magenta));
-    }
-
-    .hero-cta {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      padding: 11px 22px;
-      border-radius: var(--radius-pill);
-      border: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      background-image: linear-gradient(
-        135deg,
-        var(--accent-teal),
-        var(--accent-blue),
-        var(--accent-gold)
-      );
-      color: #050608;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
-      cursor: pointer;
-    }
-
-    .btn-secondary {
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: transparent;
-      font-size: 0.85rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-
-    .hero-right {
-      display: flex;
-      justify-content: center;
-    }
-
+    /* CAN CARD */
     .can-card {
       background: radial-gradient(circle at top, #1d2237, #050608 75%);
       border-radius: var(--radius-large);
-      padding: 26px 22px 26px;
-      box-shadow: var(--shadow-soft);
+      padding: 26px;
       border: 1px solid var(--soft-border);
       max-width: 340px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
+      margin: auto;
     }
 
-    .can-tag {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      background: rgba(5, 6, 8, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      z-index: 1;
-    }
-
-    .can-image-wrap {
-      position: relative;
-      padding: 34px 22px 12px;
-      z-index: 1;
-    }
-
-    .can-meta {
-      position: relative;
-      z-index: 1;
-      padding: 10px 2px 0;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .can-meta strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    /* Products */
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .product-card {
-      background: radial-gradient(circle at top, #171b29, #050608 70%);
-      border-radius: var(--radius-large);
-      padding: 26px 26px 24px;
-      border: 1px solid var(--soft-border);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .product-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .product-edition {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-teal);
-      margin-bottom: 10px;
-    }
-
-    .product-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      margin-bottom: 12px;
-    }
-
-    .product-pill span {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: radial-gradient(circle, #ffcc4a, #b23a73);
-    }
-
-    .product-copy {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .product-specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .spec-chip {
-      font-size: 0.75rem;
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--text-muted);
-    }
-
-    .product-can-mini {
-      max-width: 260px;
-      margin: 0 auto;
-    }
-
-    /* Story / About */
-
-    .story-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: start;
-    }
-
-    .story-block {
-      background: linear-gradient(
-        135deg,
-        rgba(22, 106, 155, 0.12),
-        rgba(16, 164, 184, 0.06),
-        rgba(5, 6, 8, 0.9)
-      );
-      border-radius: var(--radius-large);
-      border: 1px solid var(--soft-border);
-      padding: 22px 24px 20px;
-    }
-
-    .story-block h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
-
-    .story-block p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .story-block ul {
-      margin-left: 18px;
-      padding-left: 0;
-      color: var(--text-muted);
-      font-size: 0.93rem;
-    }
-
-    .story-block ul li {
-      margin-bottom: 6px;
-    }
-
-    /* Retail & Wholesale */
-
-    .retail-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 26px;
-    }
-
-    .retail-card {
-      background: radial-gradient(circle at top, #1f2335, #050608 70%);
-      border-radius: var(--radius-large);
-      padding: 22px 24px;
-      border: 1px solid var(--soft-border);
-      box-shadow: var(--shadow-soft);
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .retail-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
-
-    .retail-card ul {
-      margin-left: 18px;
-      margin-top: 6px;
-    }
-
-    .retail-highlight {
-      margin-top: 10px;
-      font-size: 0.88rem;
-      color: var(--accent-gold);
-    }
-
-    /* Contact */
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 30px;
-      align-items: start;
-    }
-
-    .contact-details {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .contact-details p {
-      margin-bottom: 8px;
-    }
-
-    .contact-highlight {
-      font-size: 0.9rem;
-      color: var(--accent-teal);
-      margin-top: 10px;
-    }
-
-    .contact-card {
-      background: radial-gradient(circle at top, #171b2a, #050608 70%);
-      border-radius: var(--radius-large);
-      border: 1px solid var(--soft-border);
-      padding: 22px 24px 24px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .contact-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .contact-card form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .input-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 9px 11px;
-      border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(5, 6, 8, 0.8);
-      color: var(--text-main);
-      font-size: 0.9rem;
-      font-family: inherit;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #5f667a;
-    }
-
-    .contact-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-
-    /* Footer */
+    /* CONTACT */
+    .contact-highlight a { color: var(--accent-teal); }
 
     footer {
       padding: 28px 18px 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
       background: #050608;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      font-size: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
       color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px;
     }
 
-    /* Responsive */
-
-    @media (max-width: 960px) {
-      .hero-inner,
-      .products-grid,
-      .story-layout,
-      .retail-grid,
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-inner {
-        padding-top: 12px;
-      }
-
-      .hero-right {
-        order: -1;
-      }
-
-      .hero-logo {
-        max-width: 340px;
-      }
-
-      section {
-        padding: 72px 18px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-menu {
-        display: none;
-      }
-
-      .nav-inner {
-        padding-inline: 16px;
-      }
-
-      .section-title {
-        font-size: 1.7rem;
-      }
-
-      .hero-heading {
-        font-size: 2.1rem;
-      }
-
-      .hero::before {
-        background-size: 540px auto;
-        opacity: 0.08;
-      }
-
-      .nav-chip img {
-        height: 30px;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <!-- Header / Nav -->
+
+  <!-- HEADER -->
   <header>
     <div class="nav-inner">
       <div class="nav-brand">
-        <div class="nav-logo-mark" aria-hidden="true">
-          <img src="earthafresh-logo.png" alt="Eartha Fresh logo" class="nav-logo-img" />
+        <div class="nav-logo-mark">
+          <img src="earthafresh-logo.svg" alt="Eartha Fresh logo" />
         </div>
         <div class="nav-brand-text">Eartha Fresh</div>
       </div>
@@ -759,297 +231,105 @@
         <a href="#story">Story</a>
         <a href="#products">Products</a>
         <a href="#about">About</a>
-        <a href="#retail">Retail &amp; Wholesale</a>
+        <a href="#retail">Retail & Wholesale</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- BCFB membership badge -->
       <div class="nav-chip">
-        <img
-          src="bcfb proud member RGB.png"
-          alt="BC Food &amp; Beverage – Proud Member"
-        />
+        <img src="bcfb proud member RGB.png" alt="BCFB Proud Member" />
       </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <main>
-    <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-gradient"></div>
-      <div class="hero-inner">
-        <div class="hero-left">
-          <img
-            src="earthafresh-logo.png"
-            srcset="earthafresh-logo.png 1x, earthafresh-logo@2x.png 2x"
-            alt="Eartha Fresh full logo"
-            class="hero-logo"
-            loading="eager"
-          />
 
-          <p class="hero-tagline">Food &amp; Beverage · British Columbia</p>
+      <div class="hero-inner">
+        <div>
+          <img src="earthafresh-logo.svg" class="hero-logo" alt="Eartha Fresh logo" />
+
+          <p class="hero-tagline">Food & Beverage · British Columbia</p>
 
           <h1 class="hero-heading">
-            Masala Soda
-            <span>.</span>
+            Masala Soda <span>.</span>
           </h1>
 
           <p class="hero-text">
-            Eartha Fresh brings the sparkle of traditional Indian masala soda into
-            a modern 355&nbsp;mL sleek can. Crafted locally in British Columbia,
-            inspired by flavors loved across generations.
+            A sparkling, modern twist on the traditional Indian masala soda —
+            crafted locally in British Columbia.
           </p>
 
           <div class="hero-badges">
-            <div class="badge">
-              <span class="badge-dot"></span>
-              Coming Soon · 355&nbsp;mL
-            </div>
-            <div class="badge">
-              Locally Crafted · Global Flavors
-            </div>
-          </div>
-
-          <div class="hero-cta">
-            <a href="#products"><button class="btn-primary">View Product</button></a>
-            <a href="#retail"><button class="btn-secondary">Retail &amp; Wholesale</button></a>
+            <div class="badge">Coming Soon · 355 mL</div>
+            <div class="badge">Locally Crafted · Global Flavors</div>
           </div>
         </div>
 
-        <div class="hero-right">
-          <div class="can-card">
-            <div class="can-tag">Masala Soda · Coming Soon</div>
-            <div class="can-image-wrap">
-              <img
-                src="masala-soda-can.png"
-                alt="Eartha Fresh Masala Soda 355 mL sleek can"
-              />
-            </div>
-            <div class="can-meta">
-              <p><strong></strong></p>
-              <p>
-                A sparkling masala soda with bright citrus, gentle spice, and a
-                refreshing finish — inspired by Indian street-side soda culture,
-                crafted for today.
-              </p>
-              <p>355&nbsp;mL · Small Batch · Modern Twist on Tradition</p>
-            </div>
-          </div>
+        <div class="can-card">
+          <div class="can-tag">Masala Soda · Coming Soon</div>
+          <img src="masala-soda-can.png" alt="Masala Soda 355ml can" />
         </div>
       </div>
     </section>
 
-    <!-- Story -->
+    <!-- STORY -->
     <section id="story">
       <div class="section-inner">
         <p class="section-kicker">Our Story</p>
         <h2 class="section-title">From Indian street corners to the Pacific Coast.</h2>
         <p class="section-subtitle">
-          Eartha Fresh was born from a simple memory: the fizz, spice, and joy of
-          masala soda shared with friends and family on warm evenings in India.
-          We wanted to bottle that feeling — and bring it to British Columbia.
+          Eartha Fresh was born from nostalgia — the fizz, spice, and joy of masala soda
+          shared with friends and family.
         </p>
-
-        <div class="story-layout">
-          <div class="story-block">
-            <h3>A tradition we grew up with.</h3>
-            <p>
-              In India, masala soda isn’t just a drink. It’s a ritual. Fresh lime
-              squeezed into a chilled glass, a pinch of roasted spices, a touch of
-              salt, and a burst of bubbles — mixed on the spot while everyone
-              waits for the first sip.
-            </p>
-            <p>
-              Those flavors inspired Eartha Fresh. Our Masala Soda takes that
-              classic street-side experience and refines it into a modern,
-              ready-to-enjoy beverage.
-            </p>
-          </div>
-
-          <div class="story-block">
-            <h3>Why masala soda feels good.</h3>
-            <p>
-              Traditional masala sodas are often enjoyed after meals and on hot
-              days. They typically combine:
-            </p>
-            <ul>
-              <li>Citrus for brightness and refreshment.</li>
-              <li>Warm spices like cumin, black salt, and pepper for depth.</li>
-              <li>A lightly sparkling base that leaves you feeling uplifted.</li>
-            </ul>
-            <p>
-              Eartha Fresh draws inspiration from these time-honoured recipes,
-              using carefully selected ingredients to create a drink that feels
-              comforting, familiar, and refreshingly new.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Products -->
+    <!-- PRODUCTS -->
     <section id="products">
       <div class="section-inner">
         <p class="section-kicker">Products</p>
-        <h2 class="section-title">Masala Soda · </h2>
-        <p class="section-subtitle">
-          Our debut release celebrates the colors of a covert — deep teal,
-          rich blue, warm gold, and vibrant magenta — wrapped around a sleek,
-          matte-black 355&nbsp;mL can.
-        </p>
+        <h2 class="section-title">Masala Soda</h2>
 
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-edition"> </div>
-            <div class="product-name">Masala Soda</div>
-            <div class="product-pill">
-              <span></span>
-              Coming Soon
-            </div>
-
-            <p class="product-copy">
-              A sparkling masala soda inspired by traditional Indian flavors —
-              reimagined with a clean, modern profile. Expect bright citrus,
-              gentle spice, and a refreshing finish that pairs beautifully with
-              rich meals, snacks, and late-night conversations.
-            </p>
-
-            <p class="product-copy">
-              Designed for celebrations, dinner tables, and everyday moments,
-              Eartha Fresh Masala Soda is crafted to be enjoyed on its own or as a
-              base for creative mocktails.
-            </p>
-
-            <div class="product-specs">
-              <div class="spec-chip">355&nbsp;mL sleek can</div>
-              <div class="spec-chip">Matte black finish</div>
-              <div class="spec-chip">Peacock Covert color palette</div>
-              <div class="spec-chip">Small-batch crafted</div>
-            </div>
-          </div>
-
-          <div class="product-can-mini">
-            <img
-              src="masala-soda-can.png"
-              alt="Masala Soda by Eartha Fresh"
-            />
-          </div>
+        <div class="product-card">
+          <p>A sparkling masala soda with bright citrus and gentle spices. Crafted small-batch in BC.</p>
         </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about">
       <div class="section-inner">
         <p class="section-kicker">About Us</p>
         <h2 class="section-title">Locally made, globally inspired.</h2>
-        <p class="section-subtitle">
-          Eartha Fresh is a British Columbia–based food and beverage company
-          that blends local craftsmanship with flavors inspired by the world.
-        </p>
-
-        <div class="story-layout">
-          <div class="story-block">
-            <h3>Locally crafted in BC.</h3>
-            <p>
-              Every batch of Eartha Fresh Masala Soda is crafted close to home.
-              We work with local partners wherever possible and pay attention to
-              the finer details — from carbonation levels to the feel of the can
-              in your hand.
-            </p>
-            <p>
-              Being local means we can stay small, flexible, and focused on
-              quality rather than quantity.
-            </p>
-          </div>
-
-          <div class="story-block">
-            <h3>Ingredients sourced from around the world.</h3>
-            <p>
-              To capture the soul of masala soda, we look beyond borders. Our
-              recipes are inspired by spices and ingredients traditionally used in
-              Indian kitchens — combined thoughtfully with high-quality
-              components available here in Canada.
-            </p>
-            <p>
-              The result is a drink that feels familiar to those who grew up with
-              masala soda and excitingly new to those discovering it for the first
-              time.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Retail & Wholesale -->
+    <!-- RETAIL -->
     <section id="retail">
       <div class="section-inner">
-        <p class="section-kicker">Retail &amp; Wholesale</p>
-        <h2 class="section-title">Stock Eartha Fresh in your store or venue.</h2>
-        <p class="section-subtitle">
-          We’re gearing up for launch and inviting early retail and wholesale
-          partners who want a distinctive, modern masala soda on their shelves
-          and menus.
-        </p>
-
-        <div class="retail-grid">
-          <div class="retail-card">
-            <h3>For retailers &amp; bottle shops</h3>
-            <p>
-              Add a bold, eye-catching can to your beverage lineup. Eartha Fresh
-              Masala Soda stands out in fridges and on shelves with its matte
-              black finish and peacock-inspired details.
-            </p>
-            <ul>
-              <li>Ideal for specialty grocers, South Asian markets, and cafés.</li>
-              <li>Perfect as a non-alcoholic feature beverage.</li>
-              <li>Year-round appeal with nostalgic yet modern flavor.</li>
-            </ul>
-            <p class="retail-highlight">
-              Email us for launch timelines, case sizes, and introductory pricing.
-            </p>
-          </div>
-
-          <div class="retail-card">
-            <h3>For restaurants, bars &amp; events</h3>
-            <p>
-              Use Eartha Fresh Masala Soda as a signature stand-alone drink or as
-              a base for inventive mocktails and cocktail programs.
-            </p>
-            <ul>
-              <li>Consistent flavor profile, easy to serve chilled.</li>
-              <li>Pairs beautifully with Indian, fusion, and comfort foods.</li>
-              <li>Great fit for weddings, festivals, and catered events.</li>
-            </ul>
-            <p class="retail-highlight">
-              Share your volume needs and we’ll tailor a wholesale option for you.
-            </p>
-          </div>
-        </div>
+        <p class="section-kicker">Retail & Wholesale</p>
+        <h2 class="section-title">Stock Eartha Fresh in your store.</h2>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact">
       <div class="section-inner">
         <p class="section-kicker">Contact</p>
-        <p class="contact-details">
-          Got questions? Get in touch!
-        </p>
+
         <p class="contact-highlight">
-          Email:
-          <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a><br />
-          Phone:
-          <a href="tel:+17788838590">+1-778-883-8590</a>
+          Email: <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a><br>
+          Phone: <a href="tel:+17788838590">+1-778-883-8590</a>
         </p>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <p>&copy; 2025 Eartha Fresh. All rights reserved.</p>
-    </div>
+    © 2025 Eartha Fresh. All rights reserved.
   </footer>
 
 </body>
