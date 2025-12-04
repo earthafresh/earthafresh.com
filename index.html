@@ -164,14 +164,15 @@
     }
 
     .nav-chip {
-      padding: 7px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      background: radial-gradient(circle at top left, #1a2434, #090b11);
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-chip img {
+      height: 36px;
+      display: block;
     }
 
     /* Layout */
@@ -736,6 +737,10 @@
         background-size: 540px auto;
         opacity: 0.08;
       }
+
+      .nav-chip img {
+        height: 30px;
+      }
     }
   </style>
 </head>
@@ -758,7 +763,13 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-chip"> </div>
+      <!-- BCFB membership badge -->
+      <div class="nav-chip">
+        <img
+          src="bcfb proud member RGB.png"
+          alt="BC Food &amp; Beverage – Proud Member"
+        />
+      </div>
     </div>
   </header>
 
@@ -1026,7 +1037,10 @@
           Got questions? Get in touch!
         </p>
         <p class="contact-highlight">
-          Email: hello@earthafresh.com
+          Email:
+          <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a><br />
+          Phone:
+          <a href="tel:+17788838590">+1-778-883-8590</a>
         </p>
       </div>
     </section>
