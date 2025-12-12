@@ -244,7 +244,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("earthafresh-logo.png");
+      background-image: url("earthafresh-logo.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: 760px auto; /* refined size to stay subtle */
@@ -344,6 +344,40 @@
 
     .hero-text {
       font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
       color: var(--text-muted);
       max-width: 520px;
     }
@@ -905,6 +939,13 @@
             <img src="earthafresh-logo.png" alt="Eartha Fresh Inc logo" class="nav-logo-full" />
           </div>
           <div class="nav-brand-text">Eartha Fresh Inc · Masala Soda</div>
+            <img src="earthafresh-logo.svg" alt="Eartha Fresh Inc logo" class="nav-logo-full" />
+          </div>
+          <div class="nav-brand-text">Eartha Fresh Inc · Masala Soda</div>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo-mark" aria-hidden="true">
+          <img src="earthafresh-logo.svg" alt="Eartha Fresh logo" class="nav-logo-img" />
         </div>
 
         <nav class="nav-menu">
@@ -936,11 +977,18 @@
           <div class="hero-logo-frame">
             <img
               src="earthafresh-logo.png"
+              src="earthafresh-logo.svg"
               alt="Eartha Fresh Inc full logo"
               class="hero-logo"
               loading="eager"
             />
           </div>
+          <img
+            src="earthafresh-logo.svg"
+            alt="Eartha Fresh full logo"
+            class="hero-logo"
+            loading="eager"
+          />
 
           <p class="hero-tagline">Food &amp; Beverage · British Columbia</p>
 
