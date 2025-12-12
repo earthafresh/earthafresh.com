@@ -2,39 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Eartha Fresh | Signature Masala Soda</title>
+  <title>Eartha Fresh | Food & Beverage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Eartha Fresh Signature Masala Soda – a premium sparkling beverage crafted in British Columbia for modern refreshment."
-  <title>Eartha Fresh </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Eartha Fresh Masala Soda – a premium sparkling beverage inspired by passion and crafted in British Columbia."
-  />
+  <meta name="description" content="Eartha Fresh is a food & beverage company bringing bold, global flavours to refreshing drinks like our upcoming Masala Soda." />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050c14;
-      --accent-teal: #0bb7b7;
-      --accent-blue: #1e4da1;
-      --accent-emerald: #0d7654;
-      --accent-gold: #f0b038;
-      --accent-purple: #3c2f83;
-      --text-main: #f5f7fb;
-      --text-muted: #b4bfd3;
-      --text-faint: #7e8aa3;
-      --soft-border: rgba(255, 255, 255, 0.08);
-      --radius-lg: 26px;
+      /* Peacock-inspired palette */
+      --color-bg: #02141f;
+      --color-bg-alt: #031f2e;
+      --color-primary: #0b6a6f;
+      --color-primary-soft: #0fa3b1;
+      --color-accent: #f5b638;
+      --color-light: #fdf7ec;
+      --color-muted: #9fb5c3;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --radius-lg: 1.6rem;
       --radius-pill: 999px;
-      --max-width: 1160px;
-      --section-padding: 96px;
+      --transition-fast: 200ms ease;
     }
 
     * {
@@ -45,614 +33,1322 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(11, 183, 183, 0.16), transparent 32%),
-        radial-gradient(circle at 88% 18%, rgba(60, 47, 131, 0.2), transparent 36%),
-        radial-gradient(circle at 24% 84%, rgba(30, 77, 161, 0.18), transparent 44%),
-        radial-gradient(circle at 78% 78%, rgba(240, 176, 56, 0.16), transparent 42%),
-        linear-gradient(135deg, #050c14 0%, #060d18 60%, #04131b 100%);
-      color: var(--text-main);
+      background: radial-gradient(circle at top left, #063348 0, #02141f 55%, #020910 100%);
+      color: var(--color-light);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
     }
 
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 30;
-      background: rgba(5, 12, 20, 0.92);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(14px);
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .nav-inner {
-      max-width: var(--max-width);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout helpers */
+    .container {
+      width: min(1120px, 100% - 2.5rem);
       margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      justify-content: space-between;
     }
 
-    .nav-brand {
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-heading {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-tagline {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-underline {
+      width: 64px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-primary-soft));
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(22px);
+      background: rgba(2, 14, 24, 0.86);
+      border-bottom: 1px solid rgba(111, 169, 188, 0.16);
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .logo-wrap {
-      padding: 10px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: radial-gradient(circle at 18% 18%, rgba(12, 118, 84, 0.4), rgba(5, 12, 20, 0.92)),
-        radial-gradient(circle at 80% 20%, rgba(30, 77, 161, 0.5), transparent 68%),
-        rgba(5, 12, 20, 0.9);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 10% 0, #0fa3b1 0, #031f2e 40%, #020910 100%);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
     }
 
     .logo-wrap img {
-      width: 148px;
-      background: radial-gradient(circle at 50% 50%, rgba(11, 183, 183, 0.12), rgba(60, 47, 131, 0.1));
-      padding: 6px 8px;
-      border-radius: 18px;
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+      width: 30px;
+      height: auto;
+      filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.75));
     }
 
-    .nav-menu {
+    .brand-text {
       display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.9rem;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-size: 1.1rem;
+      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-muted);
     }
 
-    .nav-menu a {
+    .brand-text span:last-child {
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       position: relative;
-      padding-bottom: 4px;
+      padding-bottom: 0.25rem;
+      color: var(--color-muted);
     }
 
-    .nav-menu a::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(120deg, var(--accent-teal), var(--accent-gold));
-      border-radius: 999px;
-      transition: width 0.2s ease-out;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-primary-soft));
+      border-radius: var(--radius-pill);
+      transition: width var(--transition-fast);
     }
 
-    .nav-menu a:hover::after { width: 100%; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--color-light);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     .nav-cta {
-      padding: 9px 16px;
+      padding: 0.55rem 1.4rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: linear-gradient(120deg, rgba(11, 183, 183, 0.24), rgba(240, 176, 56, 0.16));
-      color: var(--text-main);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
-    main { padding-top: 90px; }
-
-    section { padding: var(--section-padding) 18px; }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-kicker {
+      border: 1px solid rgba(245, 182, 56, 0.6);
+      background: radial-gradient(circle at top left, rgba(245, 182, 56, 0.12), rgba(2, 14, 24, 0.8));
       font-size: 0.82rem;
-      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent-teal);
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-    }
-    .section-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      max-width: 720px;
-      margin-bottom: 24px;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 78px);
-      display: flex;
-      align-items: center;
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+      background: radial-gradient(circle at top left, rgba(245, 182, 56, 0.2), rgba(2, 14, 24, 0.95));
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
       justify-content: center;
-      overflow: hidden;
+      gap: 4px;
+      cursor: pointer;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 16% 30%, rgba(11, 183, 183, 0.2), transparent 46%),
-        radial-gradient(circle at 80% 24%, rgba(60, 47, 131, 0.22), transparent 52%),
-        radial-gradient(circle at 68% 78%, rgba(240, 176, 56, 0.16), transparent 52%);
-      opacity: 1;
-      pointer-events: none;
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-light);
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("earthafresh-logo.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 520px auto;
-      opacity: 0.06;
-      mix-blend-mode: screen;
-      pointer-events: none;
+    /* Hero */
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 5rem;
     }
 
-    .hero-inner {
-      position: relative;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 48px 18px 96px;
+    .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 46px;
       align-items: center;
-      z-index: 1;
+      gap: 3.5rem;
     }
 
-    .hero-left { display: grid; gap: 18px; }
-
-    .hero-tag {
-      padding: 8px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+    .hero-pill {
       display: inline-flex;
-      gap: 10px;
       align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-muted);
-      letter-spacing: 0.14em;
+      gap: 0.5rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 102, 113, 0.4);
+      border: 1px solid rgba(159, 181, 195, 0.45);
+      backdrop-filter: blur(18px);
+      font-size: 0.75rem;
       text-transform: uppercase;
-      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--color-muted);
+      margin-bottom: 1.5rem;
     }
 
-    .hero-tag span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-gold); display: inline-block; }
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-accent), #ffefc0);
+      box-shadow: 0 0 18px rgba(245, 182, 56, 0.85);
+    }
 
-    .hero-heading {
-      font-family: "Playfair Display", serif;
-      font-size: 2.8rem;
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 600;
       line-height: 1.1;
-      max-width: 640px;
+      margin-bottom: 1rem;
     }
 
-    .hero-heading span {
-      background-image: linear-gradient(125deg, var(--accent-teal), var(--accent-blue), var(--accent-gold));
+    .hero-title span {
+      background: linear-gradient(120deg, #f5f1df, #f5b638, #0fa3b1);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
-    .hero-text { color: var(--text-muted); max-width: 640px; font-size: 1.02rem; }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
+    .hero-text {
+      color: var(--color-muted);
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
     }
 
-    .meta-pill {
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-muted);
-      font-size: 0.86rem;
+    .hero-actions {
       display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
       align-items: center;
-      gap: 10px;
     }
 
-    .meta-pill strong {
-      color: var(--text-main);
-      letter-spacing: 0.08em;
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      padding: 0.9rem 1.7rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
-
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px; }
 
     .btn-primary {
-      padding: 12px 24px;
-      border-radius: var(--radius-pill);
-      border: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background-image: linear-gradient(135deg, var(--accent-teal), var(--accent-blue), var(--accent-gold));
-      color: #04131b;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
-      cursor: pointer;
+      background: linear-gradient(135deg, var(--color-accent), #f4d46b);
+      color: #1a1305;
+      box-shadow: var(--shadow-soft);
     }
 
-    .btn-secondary {
-      padding: 11px 20px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: transparent;
-      font-size: 0.86rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      cursor: pointer;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 35px rgba(0, 0, 0, 0.7);
+      background: linear-gradient(135deg, #ffe19e, var(--color-accent));
     }
 
-    .hero-right { display: flex; justify-content: center; }
+    .btn-ghost {
+      background: rgba(3, 31, 46, 0.9);
+      border-color: rgba(159, 181, 195, 0.5);
+      color: var(--color-muted);
+    }
 
-    .can-card {
-      background: linear-gradient(145deg, rgba(4, 19, 27, 0.9), rgba(6, 13, 24, 0.9)),
-        radial-gradient(circle at 26% 14%, rgba(11, 183, 183, 0.16), transparent 60%),
-        radial-gradient(circle at 78% 18%, rgba(240, 176, 56, 0.16), transparent 60%);
-      border-radius: var(--radius-lg);
-      padding: 26px 22px 26px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
-      border: 1px solid var(--soft-border);
-      max-width: 380px;
-      width: 100%;
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+      background: rgba(3, 31, 46, 1);
+      border-color: var(--color-primary-soft);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.7);
+      color: var(--color-light);
+    }
+
+    .hero-badges {
+      margin-top: 2.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badges img {
+      height: 52px;
+      object-fit: contain;
+      opacity: 0.95;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      max-width: 14rem;
+    }
+
+    .hero-visual {
       position: relative;
-      overflow: hidden;
-      transition: transform 160ms ease, box-shadow 160ms ease;
+      display: flex;
+      justify-content: center;
     }
 
-    .can-card:hover { transform: translateY(-4px); box-shadow: 0 26px 70px rgba(0, 0, 0, 0.85); }
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      padding: 1rem 1rem 1.4rem;
+      border-radius: 32px;
+      background: radial-gradient(circle at 20% 0, #0fa3b146, #02141f 55%, #020810 100%);
+      border: 1px solid rgba(159, 181, 195, 0.3);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
 
-    .can-tag {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      background: rgba(5, 12, 20, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 0.72rem;
+    .hero-card-tag {
+      font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent-gold);
-      z-index: 1;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
     }
 
-    .can-image-wrap { padding: 36px 22px 18px; position: relative; z-index: 1; }
-    .can-meta { display: grid; gap: 10px; color: var(--text-muted); font-size: 0.9rem; }
+    .hero-card-name {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.25rem;
+    }
 
-    .products-grid {
+    .hero-card-sub {
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-can-wrap {
+      margin-inline: auto;
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.85));
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .hero-card-footer strong {
+      font-size: 0.9rem;
+      color: var(--color-light);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: auto;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(15, 163, 177, 0.35), transparent 70%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    /* Story */
+    .story-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-      gap: 26px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .story-text p {
+      color: var(--color-muted);
+      margin-bottom: 1rem;
+    }
+
+    .story-highlight {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .story-pill {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(3, 31, 46, 0.9);
+      border: 1px solid rgba(159, 181, 195, 0.35);
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .story-pill span {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--color-light);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .story-card {
+      padding: 1.5rem 1.6rem;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(11, 106, 111, 0.25), rgba(2, 20, 31, 0.95));
+      border: 1px solid rgba(11, 106, 111, 0.7);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: var(--color-light);
+    }
+
+    .story-card em {
+      color: var(--color-accent);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* Products */
+    .products {
+      background: radial-gradient(circle at top center, #042437, #020f1a 60%);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 3.4rem;
       align-items: center;
     }
 
     .product-card {
-      background: rgba(255, 255, 255, 0.02);
       border-radius: var(--radius-lg);
-      padding: 20px;
-      border: 1px solid var(--soft-border);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+      padding: 1.8rem 1.7rem;
+      background: radial-gradient(circle at 10% 0, rgba(15, 163, 177, 0.2), rgba(3, 31, 46, 0.96));
+      border: 1px solid rgba(159, 181, 195, 0.4);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .product-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-muted);
+      margin-bottom: 0.4rem;
     }
 
     .product-name {
-      font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 0.6rem;
     }
 
-    .product-copy { color: var(--text-muted); margin-bottom: 12px; }
+    .product-meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      margin-bottom: 1.4rem;
+    }
 
-    .product-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-    .spec-chip {
-      padding: 8px 12px;
+    .product-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-spec {
+      padding: 0.7rem 0.8rem;
+      border-radius: 1rem;
+      background: rgba(2, 11, 18, 0.9);
+      border: 1px dashed rgba(159, 181, 195, 0.5);
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .product-spec strong {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--color-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .product-coming {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(245, 182, 56, 0.6);
+      background: rgba(2, 11, 18, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-accent);
+      margin-bottom: 0.1rem;
     }
 
-    .insights-grid {
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      box-shadow: 0 0 0 0 rgba(245, 182, 56, 0.6);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 182, 56, 0.7); }
+      70% { transform: scale(1.4); box-shadow: 0 0 0 12px rgba(245, 182, 56, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 182, 56, 0); }
+    }
+
+    .product-cta-text {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      margin-top: 0.1rem;
+    }
+
+    .product-gallery {
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-gallery-inner {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .product-glow {
+      position: absolute;
+      inset: auto;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 240px;
+      height: 32px;
+      background: radial-gradient(circle at 50% 0, rgba(0, 0, 0, 0.9), transparent 70%);
+      filter: blur(6px);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .product-gallery-inner img {
+      filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.85));
+    }
+
+    /* Experience */
+    .experience-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: center;
     }
 
-    .insight-card {
-      padding: 16px 16px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--soft-border);
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-      color: var(--text-muted);
+    .exp-cards {
       display: grid;
-      gap: 8px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
     }
 
-    .insight-kicker { text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent-teal); font-size: 0.76rem; }
-    .insight-title { font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
-    .insight-copy { color: var(--text-muted); font-size: 0.92rem; }
-
-    .retail-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-
-    .retail-card {
-      background: linear-gradient(160deg, rgba(4, 19, 27, 0.9), rgba(6, 13, 24, 0.92)),
-        radial-gradient(circle at 30% 16%, rgba(11, 183, 183, 0.12), transparent 60%);
+    .exp-card {
+      padding: 1.1rem 1.25rem;
       border-radius: var(--radius-lg);
-      padding: 22px 24px;
-      border: 1px solid var(--soft-border);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+      background: rgba(3, 31, 46, 0.95);
+      border: 1px solid rgba(159, 181, 195, 0.35);
+      font-size: 0.85rem;
+      color: var(--color-muted);
+    }
+
+    .exp-card strong {
+      display: block;
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: var(--color-light);
+      margin-bottom: 0.25rem;
     }
 
-    .retail-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      color: var(--text-main);
+    .exp-kpi {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
     }
 
-    .retail-card ul { margin-left: 18px; margin-top: 6px; }
-    .retail-highlight { margin-top: 10px; font-size: 0.9rem; color: var(--accent-gold); }
+    .exp-kpi-item {
+      text-align: left;
+    }
+
+    .exp-kpi-item h4 {
+      font-size: 1.4rem;
+      color: var(--color-accent);
+    }
+
+    .exp-kpi-item span {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    /* Contact */
+    .contact {
+      background: radial-gradient(circle at top right, #063348, #020910 65%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: start;
+    }
 
     .contact-card {
-      margin-top: 14px;
-      padding: 18px 18px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: linear-gradient(135deg, rgba(11, 183, 183, 0.12), rgba(240, 176, 56, 0.12));
-      max-width: 520px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+      padding: 1.8rem 1.7rem;
+      border-radius: var(--radius-lg);
+      background: rgba(3, 20, 32, 0.96);
+      border: 1px solid rgba(159, 181, 195, 0.4);
+      box-shadow: var(--shadow-soft);
     }
 
-    .contact-card h3 { font-family: "Playfair Display", serif; font-size: 1.2rem; margin-bottom: 10px; }
-    .contact-highlight { font-size: 1.05rem; color: var(--text-main); line-height: 1.5; }
-    .contact-note { margin-top: 10px; color: var(--text-muted); font-size: 0.92rem; }
-
-    footer {
-      padding: 28px 18px 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: #050c14;
+    .contact-card p {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      font-size: 0.82rem;
-      color: var(--text-muted);
+    .contact-item {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--color-light);
+    }
+
+    .contact-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 10% 0, var(--color-primary-soft), var(--color-primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .contact-item span {
+      display: block;
+    }
+
+    .contact-item small {
+      display: block;
+      font-size: 0.74rem;
+      color: var(--color-muted);
+    }
+
+    .contact-form {
+      margin-top: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(159, 181, 195, 0.45);
+      background: rgba(2, 11, 18, 0.95);
+      color: var(--color-light);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(159, 181, 195, 0.7);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--color-primary-soft);
+      box-shadow: 0 0 0 1px rgba(15, 163, 177, 0.7);
+      background: rgba(2, 14, 24, 0.98);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+      border-radius: 1.1rem;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(111, 169, 188, 0.18);
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .footer-layout {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 1.25rem;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 960px) {
-      .hero-inner, .products-grid, .retail-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-right { order: -1; }
-      .nav-menu { display: none; }
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 720px) {
-      .section-title { font-size: 1.8rem; }
-      .hero-heading { font-size: 2.3rem; }
-      section { padding: 72px 18px; }
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .footer-badge img {
+      height: 40px;
+      object-fit: contain;
+      opacity: 0.95;
+    }
+
+    .footer-badge span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(159, 181, 195, 0.5);
+      background: radial-gradient(circle at 10% 0, rgba(15, 163, 177, 0.3), rgba(2, 11, 18, 0.95));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--color-light);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      z-index: 998;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .story-grid,
+      .product-grid,
+      .experience-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: fixed;
+        inset: 56px 0 auto 0;
+        padding: 1.1rem 1.25rem 1.4rem;
+        background: rgba(2, 12, 20, 0.98);
+        border-bottom: 1px solid rgba(159, 181, 195, 0.3);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        transform: translateY(-140%);
+        transition: transform var(--transition-fast);
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .story-highlight {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .product-specs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .exp-cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .exp-kpi {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .contact-grid {
+        gap: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      footer {
+        padding-bottom: 3.2rem;
+      }
+
+      .scroll-top {
+        right: 1rem;
+        bottom: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Header / Nav -->
   <header>
-    <div class="nav-inner">
-      <div class="nav-brand">
+    <div class="container nav">
+      <div class="nav-left">
         <div class="logo-wrap">
-          <img src="earthafresh-logo.png" alt="Eartha Fresh logo" />
+          <!-- Eartha Fresh logo with transparent background -->
+          <img src="assets/logo-eartha-fresh.svg" alt="Eartha Fresh logo">
+        </div>
+        <div class="brand-text">
+          <span>Eartha Fresh</span>
+          <span>Food &amp; Beverage</span>
         </div>
       </div>
-      <nav class="nav-menu" aria-label="Main navigation">
-        <a href="#products">Product</a>
-        <a href="#experience">Experience</a>
-        <a href="#partners">Partners</a>
-        <a href="#contact">Contact</a>
+
+      <nav>
+        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#story">Our Story</a>
+          <a href="#products">Products</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Contact Us
+          </button>
+        </div>
       </nav>
-      <a class="nav-cta" href="#contact">Request Info</a>
     </div>
   </header>
 
+  <!-- Hero -->
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-tag"><span></span> Signature Masala Soda</div>
-          <h1 class="hero-heading">
-            Masala Soda, crafted for bright flavor, balanced spice, and effortless service.
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Crafted in British Columbia</span>
+          </div>
+          <h1 class="hero-title">
+            Refreshment with a <span>bold, earthy twist.</span>
           </h1>
           <p class="hero-text">
-            Eartha Fresh is a modern beverage company elevating South Asian-inspired refreshment. Our signature Masala Soda pairs citrus lift with a clean sparkling profile that fits fridges, bars, and celebrations.
-          <div class="hero-tag"><span></span> </div>
-          <h1 class="hero-heading">
-            Masala Soda crafted in British Columbia.
-          </h1>
-          <p class="hero-text">
-            Eartha Fresh is a modern beverage company elevating South Asian-inspired refreshment. Our Masala Soda wraps deep teal, cobalt, emerald, and gold around a crisp, sparkling profile.
+            Eartha Fresh is a food and beverage company creating flavour-forward refreshments inspired by global spice markets and everyday moments. 
+            Our upcoming <strong>Masala Soda</strong> blends familiar fizz with comforting spice.
           </p>
-          <div class="hero-meta">
-            <div class="meta-pill"><strong>Flavor</strong>Bright citrus, gentle spice, ultra-clean finish.</div>
-            <div class="meta-pill"><strong>Craft</strong>Small-batch, balanced carbonation, 355&nbsp;mL sleek can.</div>
-            <div class="meta-pill"><strong>Occasions</strong>Perfect chilled, mixed into mocktails, or poured at events.</div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+              Explore Masala Soda →
+            </button>
+            <button class="btn-ghost" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+              Learn our story
+            </button>
           </div>
-          <div class="hero-cta">
-            <a class="btn-primary" href="#contact">Request launch pack</a>
-            <a class="btn-secondary" href="#products">See the can</a>
+
+          <div class="hero-badges">
+            <div class="hero-meta">
+              Small-batch crafted, designed for food lovers who want more character in every sip.
+            </div>
           </div>
         </div>
 
-        <div class="hero-right">
-          <div class="can-card">
-            <div class="can-tag">Small Batch</div>
-            <div class="can-image-wrap">
-              <img src="masala-soda-can.png" alt="Eartha Fresh Masala Soda can" />
+        <div class="hero-visual">
+          <div class="hero-card reveal">
+            <div class="hero-card-tag">Coming Soon</div>
+            <div class="hero-card-name">Masala Soda</div>
+            <div class="hero-card-sub">By Eartha Fresh • 355 mL</div>
+
+            <div class="hero-can-wrap">
+              <!-- Masala Soda can image -->
+              <img src="assets/masala-soda-can.png" alt="Eartha Fresh Masala Soda can">
             </div>
-            <div class="can-meta">
-              <p>Matte black can with jewel-tone accents and a refined finish.</p>
-            <div class="can-tag">/div>
-            <div class="can-image-wrap">
-              <img src="masala-soda-can.png" alt="Eartha Fresh" />
+
+            <div class="hero-card-footer">
+              <div>
+                <strong>Spiced &amp; Sparkling</strong>
+                <div>Classic masala vibes, clean finish.</div>
+              </div>
+              <div>
+                <span style="font-size:0.8rem;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.18em;">Launch 2025</span>
+              </div>
             </div>
-            <div class="can-meta">
-              <p>Matte black can with iridescent peacock-inspired accents.</p>
-              <p>Designed to stand out in fridges, on back bars, and at celebrations.</p>
+
+            <div class="hero-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story">
+      <div class="container story-grid">
+        <div class="story-text reveal">
+          <div class="section-tagline">Our Story</div>
+          <h2 class="section-heading">Rooted in flavour. Built on experience.</h2>
+          <div class="section-underline"></div>
+
+          <p>
+            Eartha Fresh began with a simple idea: everyday drinks should taste as vibrant as the cultures that inspire them. 
+            After years in hospitality and customer experience, we saw how a truly memorable beverage can elevate any meal, 
+            gathering, or moment.
+          </p>
+          <p>
+            We combine that service mindset with carefully sourced ingredients and bold flavour profiles. 
+            From concept to first sip, we obsess over balance, refreshment, and that “you have to try this” feeling.
+          </p>
+          <p>
+            Our journey started in British Columbia, but our inspiration travels with every spice blend, citrus note, and 
+            sparkling finish we craft.
+          </p>
+
+          <div class="story-highlight">
+            <div class="story-pill">
+              <span>Hospitality first</span>
+              Designed with a guest mindset—from flavour to packaging to how it pours at your table.
+            </div>
+            <div class="story-pill">
+              <span>Global influence</span>
+              Drawing on Indian masala traditions and international street beverage culture.
+            </div>
+            <div class="story-pill">
+              <span>Future ready</span>
+              Built to grow into a full line of distinctive, spice-led food and beverage offerings.
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card reveal">
+          <p>
+            <em>“Fresh” is more than a name.</em> It’s our standard for ingredients, ideas, and experiences. 
+            We design drinks that can live in everyday fridges, restaurant menus, and retail shelves—without losing soul.
+          </p>
+          <p style="margin-top:1rem;">
+            Whether you’re a retailer, restaurant, or distributor, we bring a partnership mentality: reliable service, 
+            transparent communication, and a focus on repeat-worthy flavour.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+      <div class="container">
+        <div class="section-tagline">Products</div>
+        <h2 class="section-heading">What we’re pouring next</h2>
+        <div class="section-underline"></div>
+
+        <div class="product-grid">
+          <div class="product-card reveal">
+            <div class="product-tag">Signature Launch</div>
+            <h3 class="product-name">Masala Soda</h3>
+            <p class="product-meta">
+              A sparkling drink that tastes like comfort and celebration in one sip. Inspired by classic Indian masala sodas, 
+              refined for a clean, modern palate.
+            </p>
+
+            <div class="product-specs">
+              <div class="product-spec">
+                <strong>Flavour</strong>
+                Warming spice, citrus lift, refreshingly dry finish.
+              </div>
+              <div class="product-spec">
+                <strong>Serving</strong>
+                Enjoy chilled on its own or as a mixer with your favourite spirits.
+              </div>
+              <div class="product-spec">
+                <strong>Size</strong>
+                355 mL sleek can for easy chill, grab, and go.
+              </div>
+            </div>
+
+            <div class="product-coming">
+              <span class="pulse-dot"></span>
+              <span>Coming soon</span>
+            </div>
+            <p class="product-cta-text">
+              Interested in stocking Masala Soda or learning about upcoming flavours? Reach out and we’ll share our launch details.
+            </p>
+          </div>
+
+          <div class="product-gallery reveal">
+            <div class="product-gallery-inner">
+              <!-- Can image reused as hero asset -->
+              <img src="assets/masala-soda-can.png" alt="Masala Soda product view">
+              <div class="product-glow"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="products">
-      <div class="section-inner">
-        <p class="section-kicker">Product</p>
-        <h2 class="section-title">Signature Masala Soda</h2>
-        <p class="section-subtitle">
-          Our debut release pairs a classic masala profile with a premium, modern presentation. Clean, balanced, and ready to serve.
-        <h2 class="section-title"></h2>
-        <p class="section-subtitle">
-          Our debut release pairs a classic masala profile with a premium, inspired presentation. Clean, modern, and ready to serve.
-        </p>
-
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-name">Masala Soda</div>
-            <p class="product-copy">
-              Sparkling refreshment with lime, roasted spice, and a lightly sweet finish. Crafted for versatility—enjoy it straight from the can, over ice with mint, or as the base of a signature mocktail.
-            </p>
-            <p class="product-copy">
-              Finished with jewel-tone accents and a soft matte sheen, the can feels as special as the flavor inside.
-            </p>
-            <div class="product-specs">
-              <div class="spec-chip">355&nbsp;mL sleek can</div>
-              <div class="spec-chip">Jewel-tone wrap</div>
-              The masala soda brings jewel-tone accents and a soft matte sheen so the can feels as special as the flavor inside.
-            </p>
-            <div class="product-specs">
-              <div class="spec-chip">355&nbsp;mL sleek can</div>
-              <div class="spec-chip"></div>
-              <div class="spec-chip">Low sugar, balanced spice</div>
-              <div class="spec-chip">Small-batch crafted</div>
-            </div>
-          </div>
-
-          <div class="product-can-mini">
-            <img src="masala-soda-can.png" alt="Eartha Fresh Masala Soda can" />
-            <img src="masala-soda-can.png" alt=" Edition Masala Soda can" />
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- Experience -->
     <section id="experience">
-      <div class="section-inner">
-        <p class="section-kicker">Experience</p>
-        <h2 class="section-title">A professional, ready-to-serve beverage.</h2>
-        <p class="section-subtitle">Tailored for beverage programs, premium retail, and modern celebrations.</p>
-        <div class="insights-grid">
-          <div class="insight-card">
-            <p class="insight-kicker">Taste</p>
-            <p class="insight-title">Bright, aromatic, balanced</p>
-            <p class="insight-copy">Lime-forward sparkle with gentle cumin and black salt notes for depth without heaviness.</p>
-          </div>
-          <div class="insight-card">
-            <p class="insight-kicker">Presentation</p>
-            <p class="insight-title">Modern jewel tones</p>
-            <p class="insight-copy">Teal, emerald, cobalt, and gold create instant shelf appeal with a premium, confident look.</p>
-            <p class="insight-title"></p>
-            <p class="insight-copy">Teal, emerald, cobalt, and gold mirror, creating instant shelf appeal.</p>
-          </div>
-          <div class="insight-card">
-            <p class="insight-kicker">Service</p>
-            <p class="insight-title">Effortless for staff</p>
-            <p class="insight-copy">Slim cans chill quickly, pour cleanly, and integrate seamlessly into zero-proof or cocktail menus.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="partners">
-      <div class="section-inner">
-        <p class="section-kicker">Partners</p>
-        <h2 class="section-title">Ready for fridges, menus, and events.</h2>
-        <p class="section-subtitle">We work with retailers, restaurants, bars, caterers, and event planners who want a striking non-alcoholic option.</p>
-
-        <div class="retail-grid">
-          <div class="retail-card">
-            <h3>Retail &amp; bottle shops</h3>
-            <p>Add a jewel-toned can to your curated set. The palette draws attention while the flavor keeps guests coming back.</p>
-            <ul>
-              <li>Ideal for specialty grocers and South Asian markets.</li>
-              <li>Eye-catching matte black finish with refined accents.</li>
-            <p>Add a jewel-toned can to your curated set. The palette draws attention while the flavor keeps guests coming back.</p>
-            <ul>
-              <li>Ideal for specialty grocers and South Asian markets.</li>
-              <li>Eye-catching matte black finish with iridescent accents.</li>
-              <li>Low handling effort; ships in ready-to-display packs.</li>
-            </ul>
-            <p class="retail-highlight">Ask about launch timing, case sizes, and merchandising assets.</p>
-          </div>
-
-          <div class="retail-card">
-            <h3>Restaurants, bars &amp; events</h3>
-            <p>Serve chilled as-is or mix into modern mocktails. Balanced spice keeps it food-friendly and versatile.</p>
-            <ul>
-              <li>Consistent carbonation and pour for quick service.</li>
-              <li>Pairs beautifully with grills, chaat, and rich mains.</li>
-              <li>Standout for weddings, festivals, and corporate bars.</li>
-            </ul>
-            <p class="retail-highlight">Share volume needs and we’ll tailor a distribution plan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-inner">
-        <p class="section-kicker">Contact</p>
-        <h2 class="section-title">Let’s plan your first order.</h2>
-        <p class="section-subtitle">Tell us about your location, volumes, and launch goals. We respond within one business day.</p>
-        <div class="contact-card">
-          <h3>Distribution &amp; tasting requests</h3>
-          <p class="contact-highlight">
-            Email: <a href="mailto:earthafresh@gmail.com">earthafresh@gmail.com</a><br />
-            Phone: <a href="tel:+17788838590">+1-778-883-8590</a>
+      <div class="container experience-grid">
+        <div class="reveal">
+          <div class="section-tagline">Experience</div>
+          <h2 class="section-heading">Service-driven from day one</h2>
+          <div class="section-underline"></div>
+          <p style="color:var(--color-muted);margin-bottom:1rem;">
+            Eartha Fresh brings together years of real estate, hospitality, and customer service expertise across 
+            Canada and India. That means we don’t just think about how a drink tastes—we think about how it fits into 
+            your operation and your guest experience.
           </p>
-          <p class="contact-note">Share your region, timing, and any service requirements—we’ll tailor the right pack size and support.</p>
+          <p style="color:var(--color-muted);margin-bottom:1.2rem;">
+            From merchandising to staff training and in-store storytelling, we’re here to help you turn a simple can 
+            into a conversation starter.
+          </p>
+
+          <div class="exp-kpi">
+            <div class="exp-kpi-item">
+              <h4>2</h4>
+              <span>Countries of operational experience</span>
+            </div>
+            <div class="exp-kpi-item">
+              <h4>10+</h4>
+              <span>Years in customer-facing roles</span>
+            </div>
+            <div class="exp-kpi-item">
+              <h4>100%</h4>
+              <span>Focus on reliable partnerships</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-cards reveal">
+          <div class="exp-card">
+            <strong>Retail-ready approach</strong>
+            We understand shelf presence, shopper behaviour, and how to translate flavour stories into visual impact.
+          </div>
+          <div class="exp-card">
+            <strong>Hospitality mindset</strong>
+            Every product is designed with servers, bartenders, and owners in mind—easy to explain and easy to love.
+          </div>
+          <div class="exp-card">
+            <strong>Adaptable formats</strong>
+            From independents to regional chains, we aim for formats and pricing that scale with your business.
+          </div>
+          <div class="exp-card">
+            <strong>Thoughtful support</strong>
+            We’re approachable, responsive, and committed to keeping your guests excited to try what’s next.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <div class="section-tagline">Contact</div>
+          <h2 class="section-heading">Let’s create something refreshing</h2>
+          <div class="section-underline"></div>
+          <p>
+            Whether you’re a retailer, restaurant, distributor, or just a fellow flavour fan, we’d love to hear from you. 
+            Reach out for sampling information, partnerships, or launch updates on Masala Soda.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon">@</div>
+            <div>
+              <span>earthafresh@gmail.com</span>
+              <small>Email us for product details and partnerships.</small>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <span>778-883-8590</span>
+              <small>Call or text to connect directly.</small>
+            </div>
+          </div>
+
+          <div class="form-note" style="margin-top:0.9rem;">
+            Prefer WhatsApp, Zoom, or an in-person meeting? Mention it in your message and we’ll make it happen.
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Contact Us</h3>
+          <p>
+            Share a few details and we’ll respond as quickly as possible.
+          </p>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Eartha Fresh! We will get back to you shortly.');">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input id="company" type="text" placeholder="Business / Organization">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" placeholder="+1 (___) ___-____">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">How can we help?</label>
+              <textarea id="message" placeholder="Tell us about your store, menu, or idea..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top:0.2rem;">
+              Send Message
+            </button>
+            <div class="form-note">
+              This form is a front-end sample. Connect it to your preferred email or CRM on your hosting platform.
+            </div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="footer-inner">
-      <p>&copy; 2025 Eartha Fresh. All rights reserved.</p>
-      <p>Crafted in British Columbia · Inspired by vibrant spice markets.</p>
-      <p>Crafted in British Columbia · Inspired by covert colours.</p>
+    <div class="container footer-layout">
+      <div>
+        © <span id="year"></span> Eartha Fresh. All rights reserved.
+      </div>
+      <div class="footer-badge">
+        <!-- BCFB membership badge -->
+        <img src="assets/bcfb-member.png" alt="BC Food & Beverage Proud Member">
+        <span>Proud Member</span>
+      </div>
+      <div class="footer-links">
+        <a href="#story">Story</a>
+        <a href="#products">Products</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Active link on scroll & reveal animations
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    const revealEls = document.querySelectorAll('.reveal');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 120;
+
+      sections.forEach(sec => {
+        const top = sec.offsetTop;
+        const bottom = top + sec.offsetHeight;
+        const id = sec.getAttribute('id');
+
+        if (scrollPos >= top && scrollPos < bottom) {
+          navAnchors.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+
+      // Scroll to top visibility
+      if (window.scrollY > 260) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Intersection Observer for reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Scroll to top
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
