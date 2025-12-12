@@ -18,11 +18,11 @@
   <style>
     :root {
       --bg: #050608;
-      --accent-teal: #10a4b8;
-      --accent-blue: #166a9b;
-      --accent-gold: #d6a75b;
-      --accent-magenta: #b23a73;
-      --accent-purple: #6b4aa8;
+      --accent-teal: #02a4c5;
+      --accent-blue: #2d73c5;
+      --accent-gold: #f59b3d;
+      --accent-magenta: #8dc63f;
+      --accent-purple: #3f5e91;
       --text-main: #f5f5f5;
       --text-muted: #a8b0c4;
       --text-faint: #7f889d;
@@ -94,40 +94,32 @@
       gap: 12px;
     }
 
-    /* Slightly larger, padded logo mark so the artwork breathes */
-    .nav-logo-mark {
-      width: 52px;
-      height: 52px;
-      padding: 6px;
-      border-radius: 12px;
-      overflow: hidden;
+    .nav-logo-wrap {
+      padding: 8px 12px;
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      background: linear-gradient(135deg, rgba(24,27,37,1), rgba(5,6,8,1));
+      background: radial-gradient(circle at 20% 20%, rgba(32, 40, 55, 0.85), rgba(5, 6, 8, 0.9));
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Make sure the logo image fits crisply and keeps its aspect ratio */
-    .nav-logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .nav-logo-full {
+      width: 140px;
+      height: auto;
       display: block;
-      -webkit-font-smoothing: antialiased;
-      image-rendering: -webkit-optimize-contrast;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
     }
 
     .nav-brand-text {
       font-family: "Playfair Display", serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.2;
     }
 
     .nav-menu {
@@ -255,9 +247,10 @@
       background-image: url("earthafresh-logo.svg");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 720px auto; /* reduced size to be less noisy */
-      opacity: 0.06;                /* reduced strength */
-      filter: blur(0.2px);
+      background-size: 760px auto; /* refined size to stay subtle */
+      opacity: 0.08;                /* reduced strength */
+      filter: saturate(1.05) blur(0.2px);
+      mix-blend-mode: screen;
       pointer-events: none;
     }
 
@@ -291,11 +284,25 @@
       gap: 20px;
     }
 
+    .hero-logo-frame {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 18px 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(5, 6, 8, 0.65), rgba(32, 40, 55, 0.45));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
+      max-width: 460px;
+    }
+
     /* hero logo: allow high-DPI images with a simple srcset if you add @2x later */
     .hero-logo {
       max-width: 420px;
+      width: 100%;
       display: block;
       height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
     }
 
     .hero-tagline {
@@ -337,6 +344,23 @@
 
     .hero-text {
       font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
       color: var(--text-muted);
       max-width: 520px;
     }
@@ -808,6 +832,14 @@
     /* Responsive */
 
     @media (max-width: 960px) {
+      .nav-logo-full {
+        width: 120px;
+      }
+
+      .nav-brand-text {
+        font-size: 0.78rem;
+      }
+
       .hero-inner,
       .products-grid,
       .story-layout,
@@ -822,6 +854,10 @@
 
       .hero-right {
         order: -1;
+      }
+
+      .hero-logo-frame {
+        max-width: 380px;
       }
 
       .hero-logo {
@@ -842,6 +878,14 @@
         padding-inline: 16px;
       }
 
+      .nav-logo-full {
+        width: 118px;
+      }
+
+      .nav-brand-text {
+        display: none;
+      }
+
       .section-title {
         font-size: 1.7rem;
       }
@@ -855,6 +899,14 @@
         opacity: 0.08;
       }
 
+      .hero-logo-frame {
+        padding: 14px 14px 12px;
+      }
+
+      .hero-logo {
+        max-width: 300px;
+      }
+
       .nav-chip img {
         height: 30px;
       }
@@ -864,15 +916,19 @@
 <body>
   <!-- Header / Nav -->
   <header>
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <div class="nav-logo-wrap">
+            <img src="earthafresh-logo.svg" alt="Eartha Fresh Inc logo" class="nav-logo-full" />
+          </div>
+          <div class="nav-brand-text">Eartha Fresh Inc · Masala Soda</div>
     <div class="nav-inner">
       <div class="nav-brand">
         <div class="nav-logo-mark" aria-hidden="true">
           <img src="earthafresh-logo.svg" alt="Eartha Fresh logo" class="nav-logo-img" />
         </div>
-        <div class="nav-brand-text">Eartha Fresh</div>
-      </div>
 
-      <nav class="nav-menu">
+        <nav class="nav-menu">
         <a href="#story">Story</a>
         <a href="#products">Products</a>
         <a href="#about">About</a>
@@ -898,6 +954,14 @@
       <div class="hero-gradient"></div>
       <div class="hero-inner">
         <div class="hero-left">
+          <div class="hero-logo-frame">
+            <img
+              src="earthafresh-logo.svg"
+              alt="Eartha Fresh Inc full logo"
+              class="hero-logo"
+              loading="eager"
+            />
+          </div>
           <img
             src="earthafresh-logo.svg"
             alt="Eartha Fresh full logo"
